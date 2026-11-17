@@ -1,1154 +1,727 @@
 <!DOCTYPE html>
-<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>CINÉ-GENESIS · Studio de films IA</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Share+Tech+Mono&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+<!-- saved from url=(0067)file:///C:/Users/Admin/Downloads/deepseek_html_20261113_00e307.html -->
+<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HAL · Agnes Generative Interface</title>
 <style>
-:root{--bg:#f4f7fb;--p:#fff;--ink:#0b1a2b;--dim:#6b7c93;--ln:#d5deea;--a:#0a84ff;--b:#ff5a1f;--ok:#12b76a;--er:#e5383b;--m:'Share Tech Mono',ui-monospace,monospace}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font:16px/1.5 Rajdhani,system-ui,sans-serif;color:var(--ink);background:var(--bg);min-height:100vh;padding-bottom:70px}
-body::before{content:"";position:fixed;inset:0;z-index:-1;background:linear-gradient(var(--ln) 1px,transparent 1px) 0 0/40px 40px,linear-gradient(90deg,var(--ln) 1px,transparent 1px) 0 0/40px 40px;opacity:.5}
-body::after{content:"";position:fixed;top:0;left:0;right:0;height:6px;z-index:25;background:repeating-linear-gradient(90deg,var(--ink) 0 1px,transparent 1px 10px);opacity:.25;pointer-events:none}
-header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--ink);padding:10px 18px;display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between}
-.logo{font:800 20px Orbitron;letter-spacing:.1em}.logo b{color:var(--a)}.logo i{display:block;font:10px var(--m);letter-spacing:.3em;color:var(--dim);font-style:normal}
-#steps{display:flex;gap:4px;flex-wrap:wrap}
-.st{font:11px var(--m);letter-spacing:.06em;text-transform:uppercase;padding:5px 9px;border:1px solid var(--ln);background:#fff;color:var(--dim)}
-.st.ok{color:var(--ink);border-color:var(--ink)}.st.on{background:var(--ink);color:#fff;border-color:var(--ink)}.st:disabled{opacity:.45}.st.on:disabled{opacity:1}
-.hb{display:flex;gap:6px;align-items:center}
-main{max-width:1100px;margin:0 auto;padding:22px 16px}
-.hero{background:var(--p);border:1px solid var(--ln);padding:22px;margin-bottom:16px;position:relative}
-.hero::before,.hero::after{content:"";position:absolute;width:14px;height:14px;border:2px solid var(--a)}
-.hero::before{top:-1px;left:-1px;border-right:0;border-bottom:0}.hero::after{bottom:-1px;right:-1px;border-left:0;border-top:0}
-.lab{font:11px var(--m);letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
-h2{font:600 28px Orbitron;letter-spacing:.04em;margin:6px 0 8px}h2 b{color:var(--a)}h3{font:600 15px Orbitron;letter-spacing:.06em;margin:16px 0 4px}
-p.sub{color:var(--dim);margin-bottom:12px;max-width:780px}
-.guide{display:flex;gap:12px;align-items:center;border:1px solid var(--a);background:#eef6ff;padding:12px 14px;margin:10px 0 16px}
-.guide.go{border-color:var(--ok);background:#effaf4}.guide.er{border-color:var(--er);background:#fff1f1;display:block}.guide.wt{border-color:var(--b);background:#fff6f0}
-textarea,input[type=text],select{width:100%;font:13px var(--m);padding:9px;border:1px solid var(--ln);background:#f9fbfd;color:var(--ink);outline:0}
-textarea:focus,input:focus,select:focus{border-color:var(--a);background:#fff}textarea{resize:vertical;min-height:70px;margin:4px 0}
-label.f{display:block;margin:6px 0}label.f span{display:block}
-button,.btn{font:600 12px var(--m);letter-spacing:.1em;text-transform:uppercase;padding:9px 14px;border:1px solid var(--ink);background:#fff;color:var(--ink);cursor:pointer;display:inline-block}
-button:hover:not(:disabled),.btn:hover{background:var(--ink);color:#fff}button:disabled{opacity:.35;cursor:not-allowed}
-.big{background:var(--a);border-color:var(--a);color:#fff;padding:14px 26px;font-size:14px;letter-spacing:.16em}.big:hover:not(:disabled){background:#0066cc;border-color:#0066cc}
-.sm{padding:5px 9px;font-size:10px}.ft{display:flex;justify-content:space-between;gap:10px;margin-top:20px;flex-wrap:wrap;align-items:center}
-.chips{display:flex;flex-wrap:wrap;gap:5px;margin:8px 0}.chip{font:11px var(--m);padding:2px 8px;border:1px solid var(--ok);color:var(--ok)}.chip.off{border-color:var(--er);color:var(--er)}.chip.cd{border-color:var(--b);color:var(--b)}
-.gc{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 10px}.gc button.sel{background:var(--a);border-color:var(--a);color:#fff}
-.choice{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin:10px 0}
-.ch{border:1px solid var(--ink);padding:16px;cursor:pointer;background:#fff}.ch:hover{background:#f3f8ff}.ch.sel{border-color:var(--a);box-shadow:inset 0 0 0 2px var(--a);background:#eef6ff}.ch b{display:block;font:600 15px Orbitron;margin-bottom:4px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
-.cd{border:1px solid var(--ln);background:#fff;padding:10px;position:relative}.cd.pk{border-color:var(--a);box-shadow:0 0 0 1px var(--a)}
-.im{position:relative;background:#e8eef6;display:flex;align-items:center;justify-content:center;overflow:hidden;margin-bottom:6px;font:11px var(--m);color:var(--dim)}
-.im img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.sp,.sp2{border:2px solid var(--a);border-top-color:transparent;border-radius:50%;animation:r 1s linear infinite}.sp{position:absolute;width:26px;height:26px;z-index:2}.sp2{display:inline-block;width:16px;height:16px;flex:none}@keyframes r{to{transform:rotate(360deg)}}
-.ip{background:#f6f9fc;border:1px solid var(--ln);padding:8px;margin:6px 0}.rw{display:flex;gap:5px;flex-wrap:wrap;margin-top:5px;align-items:center}
-.up{border:1px solid var(--ink);cursor:pointer}
-.bar{height:6px;background:var(--ln);margin:12px 0}.bar i{display:block;height:100%;background:var(--a);width:0;transition:width .4s}
-.feed{margin:10px 0}.fi{display:flex;gap:10px;align-items:center;padding:8px 0;border-bottom:1px dashed var(--ln);font-size:16px}.fi.ok{color:var(--ok)}.fi.er{color:var(--er)}.fi em{margin-left:auto;font:11px var(--m);color:var(--dim);font-style:normal}.fi .ic{width:18px;text-align:center;flex:none}
-.mg{grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px;margin-top:12px}.mn .im{margin:0}.mn .lab{font-size:9px;padding-top:2px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
-.dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--dim);margin-right:6px}.dot.run{background:var(--ok)}.dot.full{background:var(--b);animation:bl 1s infinite}@keyframes bl{50%{opacity:.25}}
-.lad{display:flex;gap:4px;flex-wrap:wrap;margin:6px 0}.lad i{font:11px var(--m);font-style:normal;padding:3px 8px;border:1px solid var(--ln);color:var(--dim)}.lad i.past{border-color:var(--b);color:var(--b)}.lad i.on{background:var(--b);color:#fff;border-color:var(--b)}
-.tl{border:1px solid var(--ln);background:#fff}.tl.ok{border-color:var(--ok)}.tl.run{border-color:var(--a)}.tl.er{border-color:var(--er)}
-.th{position:relative;background:#e8eef6;overflow:hidden}.th img,.th video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.tg{position:absolute;top:4px;left:4px;z-index:2;font:10px var(--m);background:var(--ink);color:#fff;padding:1px 5px}.nw{position:absolute;top:4px;right:4px;z-index:2;font:10px var(--m);font-style:normal;background:var(--b);color:#fff;padding:1px 5px}
-.tx{font-size:13px;padding:6px 8px;line-height:1.3}.mt{font:10px var(--m);color:var(--dim);padding:0 8px 7px}
-.kp{display:flex;gap:22px;flex-wrap:wrap;margin:12px 0}.kp b{font:600 22px Orbitron;display:block}
-#con{position:fixed;left:0;right:0;bottom:0;height:34vh;z-index:50;background:#0b1a2b;color:#bfe3ff;transform:translateY(100%);transition:transform .25s;display:flex;flex-direction:column}#con.on{transform:none}
-#lb{flex:1;overflow:auto;padding:8px 12px;font:12px/1.5 var(--m)}.lg.er{color:#ff8a8a}.lg.wr{color:#ffc477}.lg.ok{color:#7dffb5}
-#md{position:fixed;inset:0;background:rgba(11,26,43,.55);z-index:70;display:none;align-items:center;justify-content:center;padding:16px}#md.on{display:flex}#md>div{background:#fff;max-width:640px;width:100%;max-height:85vh;overflow:auto;padding:20px;border:1px solid var(--ink)}
-#toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);z-index:90;display:flex;flex-direction:column;gap:6px;align-items:center}#toast div{background:var(--ink);color:#fff;font:12px var(--m);padding:8px 14px}
-#pl{position:fixed;inset:0;background:#000;z-index:100;display:none;align-items:center;justify-content:center}#pl.on{display:flex}#pv,#pi{max-width:100vw;max-height:100vh}#sub{position:absolute;left:5%;right:5%;bottom:7%;text-align:center;color:#fff;font:600 22px/1.3 Rajdhani;text-shadow:0 2px 8px #000}#pl button{position:absolute;top:14px;right:14px}
-@media(max-width:700px){h2{font-size:21px}.st{padding:4px 6px;font-size:9px}}
-</style></head><body>
-<header><div class="logo">CINÉ<b>-GENESIS</b><i>STUDIO DE FILMS IA</i></div><nav id="steps"></nav>
-<div class="hb"><span class="chip" id="qchip"></span><button class="sm" data-a="sess">Mes films</button><button class="sm" data-a="con">Journal</button></div></header>
-<main id="main"></main>
-<div id="con"><div style="display:flex;justify-content:space-between;padding:6px 12px;border-bottom:1px solid #26405c;font:12px var(--m)"><span>JOURNAL TECHNIQUE</span><button class="sm" data-a="con" style="color:#bfe3ff;border-color:#4a6a8a">✕</button></div><div id="lb"></div></div>
-<div id="md"><div id="mdc"></div></div><div id="toast"></div>
-<div id="pl"><video id="pv" playsinline style="display:none"></video><img id="pi" alt="" style="display:none"><div id="sub"></div><button data-a="stopplay">✕ Quitter</button></div>
+  :root {
+    --bg: #06080c;
+    --panel: #0c1018;
+    --panel-2: #111822;
+    --fg: #b8c4d4;
+    --fg-dim: #5a6a7e;
+    --red: #ff2a2a;
+    --red-dim: #551010;
+    --border: #1a2230;
+    --border-bright: #2a3a50;
+    --font: 'Courier New', 'SF Mono', 'Consolas', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    height: 100%;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font);
+    overflow: hidden;
+    cursor: crosshair;
+  }
+
+  /* ===== SCÈNE SVG ===== */
+  #stage {
+    position: fixed;
+    inset: 0;
+    display: block;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* ===== PANNEAU CHAT ===== */
+  #chat-panel {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    padding: 18px;
+    z-index: 10;
+  }
+  #messages {
+    flex: 1;
+    overflow-y: auto;
+    pointer-events: auto;
+    padding: 10px 4px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--red-dim) transparent;
+    max-width: 540px;
+  }
+  #messages::-webkit-scrollbar { width: 4px; }
+  #messages::-webkit-scrollbar-thumb { background: var(--red-dim); }
+
+  .msg {
+    margin: 7px 0;
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    font-size: 12px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    word-break: break-word;
+    animation: msgIn 0.22s ease-out;
+    background: rgba(6,8,12,0.88);
+    backdrop-filter: blur(6px);
+  }
+  .msg.user {
+    margin-left: auto;
+    max-width: 82%;
+    border-color: #2a3a50;
+    color: #8a9ab0;
+    text-align: right;
+  }
+  .msg.assistant {
+    margin-right: auto;
+    max-width: 94%;
+    border-color: var(--red-dim);
+    color: var(--fg);
+  }
+  .msg.error { border-color: var(--red); color: var(--red); }
+  @keyframes msgIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ===== ZONE DE SAISIE ===== */
+  #input-area {
+    pointer-events: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-top: 8px;
+    border-top: 1px solid var(--border);
+    max-width: 660px;
+  }
+  #api-keys {
+    width: 100%;
+    height: 38px;
+    background: var(--panel);
+    color: var(--fg-dim);
+    border: 1px solid var(--border);
+    padding: 5px 9px;
+    font-family: var(--font);
+    font-size: 9.5px;
+    resize: none;
+    outline: none;
+    line-height: 1.4;
+  }
+  #api-keys:focus { border-color: var(--border-bright); color: #8898aa; }
+
+  #input-row { display: flex; gap: 6px; align-items: stretch; }
+  #question {
+    flex: 1;
+    background: var(--panel);
+    color: var(--fg);
+    border: 1px solid var(--border);
+    padding: 10px 12px;
+    font-family: var(--font);
+    font-size: 13px;
+    resize: none;
+    outline: none;
+    height: 44px;
+  }
+  #question:focus { border-color: var(--border-bright); }
+  #send-btn {
+    background: var(--panel);
+    color: var(--red);
+    border: 1px solid var(--red);
+    padding: 0 18px;
+    font-family: var(--font);
+    font-size: 11px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+  }
+  #send-btn:hover:not(:disabled) { background: var(--red); color: #000; }
+  #send-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+
+  /* ===== HUD ===== */
+  #status {
+    position: fixed;
+    top: 12px;
+    right: 18px;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--fg-dim);
+    text-transform: uppercase;
+    pointer-events: none;
+    z-index: 20;
+  }
+  #status.active { color: var(--red); }
+
+  #svg-counter {
+    position: fixed;
+    bottom: 12px;
+    right: 18px;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--fg-dim);
+    pointer-events: none;
+    z-index: 20;
+  }
+
+  /* Cadre décoratif autour de la grille (style 2Advanced) */
+  #grid-frame {
+    position: fixed;
+    pointer-events: none;
+    z-index: 2;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ SCÈNE SVG ============ -->
+<svg id="stage" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 645" width="1366" height="645">
+  <defs>
+    <radialgradient id="redGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ff4444" stop-opacity="1"></stop>
+      <stop offset="30%" stop-color="#ff1a1a" stop-opacity="0.95"></stop>
+      <stop offset="65%" stop-color="#990000" stop-opacity="0.6"></stop>
+      <stop offset="100%" stop-color="#1a0000" stop-opacity="0"></stop>
+    </radialgradient>
+    <radialgradient id="ringMetal" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#2a3040"></stop>
+      <stop offset="50%" stop-color="#0e1218"></stop>
+      <stop offset="100%" stop-color="#04060a"></stop>
+    </radialgradient>
+    <filter id="halo" x="-150%" y="-150%" width="400%" height="400%">
+      <fegaussianblur stdDeviation="16"></fegaussianblur>
+    </filter>
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <fegaussianblur stdDeviation="4" result="blur"></fegaussianblur>
+      <femerge>
+        <femergenode in="blur"></femergenode>
+        <femergenode in="SourceGraphic"></femergenode>
+      </femerge>
+    </filter>
+  </defs>
+
+  <!-- Calque des cases (cellules de la grille) -->
+  <g id="cells-layer"><rect x="573.72" y="36" width="251.42666666666665" height="156.33333333333334" fill="#0a0e14" stroke="#141a24" stroke-width="1" rx="2"></rect><rect x="577.72" y="40" width="243.42666666666665" height="148.33333333333334" fill="none" stroke="#0f141c" stroke-width="0.5" stroke-dasharray="2 4"></rect><clippath id="clip-cell-0"><rect x="573.72" y="36" width="251.42666666666665" height="156.33333333333334"></rect></clippath><g data-cell="0" clip-path="url(#clip-cell-0)"><image href="https://platform-outputs.agnes-ai.space/images/t2i/task_hs9Jle54kQUw5fONPfp0epw6WxpEvxfh/output_a132bd18e28546fcb371e1594693b9f7.png" preserveAspectRatio="xMidYMid slice" width="251.42666666666665" height="156.33333333333334" x="573.72" y="36" style="opacity: 0.88; transition: opacity 0.8s;"></image><rect x="574.72" y="37" width="249.42666666666665" height="154.33333333333334" fill="none" stroke="#ff2a2a" stroke-width="0.6" opacity="0.25"></rect></g><rect x="835.1466666666666" y="36" width="251.42666666666665" height="156.33333333333334" fill="#0a0e14" stroke="#141a24" stroke-width="1" rx="2"></rect><rect x="839.1466666666666" y="40" width="243.42666666666665" height="148.33333333333334" fill="none" stroke="#0f141c" stroke-width="0.5" stroke-dasharray="2 4"></rect><clippath id="clip-cell-1"><rect x="835.1466666666666" y="36" width="251.42666666666665" height="156.33333333333334"></rect></clippath><g data-cell="1" clip-path="url(#clip-cell-1)"><image href="https://platform-outputs.agnes-ai.space/images/t2i/task_NfL1MYfNGEpO8TmRacCj8Whdq8gt0cwT/output_6e09f46f7a294a48b44d1e8fa22971b9.png" preserveAspectRatio="xMidYMid slice" width="251.42666666666665" height="156.33333333333334" x="835.1466666666666" y="36" style="opacity: 0.88; transition: opacity 0.8s;"></image><rect x="836.1466666666666" y="37" width="249.42666666666665" height="154.33333333333334" fill="none" stroke="#ff2a2a" stroke-width="0.6" opacity="0.25"></rect></g><rect x="1096.5733333333333" y="36" width="251.42666666666665" height="156.33333333333334" fill="#0a0e14" stroke="#141a24" stroke-width="1" rx="2"></rect><rect x="1100.5733333333333" y="40" width="243.42666666666665" height="148.33333333333334" fill="none" stroke="#0f141c" stroke-width="0.5" stroke-dasharray="2 4"></rect><clippath id="clip-cell-2"><rect x="1096.5733333333333" y="36" width="251.42666666666665" height="156.33333333333334"></rect></clippath><g data-cell="2" clip-path="url(#clip-cell-2)"><image href="https://platform-outputs.agnes-ai.space/images/t2i/task_MQ2KzEz0jLFmwHKvaPhaCQdNN2vf81iV/output_2aeaac3d87514b46acf30dcd23848108.png" preserveAspectRatio="xMidYMid slice" width="251.42666666666665" height="156.33333333333334" x="1096.5733333333333" y="36" style="opacity: 0.88; transition: opacity 0.8s;"></image><rect x="1097.5733333333333" y="37" width="249.42666666666665" height="154.33333333333334" fill="none" stroke="#ff2a2a" stroke-width="0.6" opacity="0.25"></rect></g><rect x="573.72" y="202.33333333333334" width="251.42666666666665" height="156.33333333333334" fill="#0a0e14" stroke="#141a24" stroke-width="1" rx="2"></rect><rect x="577.72" y="206.33333333333334" width="243.42666666666665" height="148.33333333333334" fill="none" stroke="#0f141c" stroke-width="0.5" stroke-dasharray="2 4"></rect><clippath id="clip-cell-3"><rect x="573.72" y="202.33333333333334" width="251.42666666666665" height="156.33333333333334"></rect></clippath><g data-cell="3" clip-path="url(#clip-cell-3)"><image href="https://platform-outputs.agnes-ai.space/images/t2i/task_Jf76fy4eCuAzd2Tufj3cs6VqzdqKrpvP/output_ee33ebd267324c058fca0ffa41e0d68a.png" preserveAspectRatio="xMidYMid slice" width="251.42666666666665" height="156.33333333333334" x="573.72" y="202.33333333333334" style="opacity: 0.88; transition: opacity 0.8s;"></image><rect x="574.72" y="203.33333333333334" width="249.42666666666665" height="154.33333333333334" fill="none" stroke="#ff2a2a" stroke-width="0.6" opacity="0.25"></rect></g><rect x="835.1466666666666" y="202.33333333333334" width="251.42666666666665" height="156.33333333333334" fill="none" stroke="#141a24" stroke-width="1" rx="2"></rect><rect x="1096.5733333333333" y="202.33333333333334" width="251.42666666666665" height="156.33333333333334" fill="#0a0e14" stroke="#141a24" stroke-width="1" rx="2"></rect><rect x="1100.5733333333333" y="206.33333333333334" width="243.42666666666665" height="148.33333333333334" fill="none" stroke="#0f141c" stroke-width="0.5" stroke-dasharray="2 4"></rect><clippath id="clip-cell-5"><rect x="1096.5733333333333" y="202.33333333333334" width="251.42666666666665" height="156.33333333333334"></rect></clippath><g data-cell="5" clip-path="url(#clip-cell-5)"><image href="https://platform-outputs.agnes-ai.space/images/t2i/task_i58OlRXY2uylhJcht6rNJoHAgRCQQxYV/output_4110a4967aaf4eb6b1b5d8bcee51bd4d.png" preserveAspectRatio="xMidYMid slice" width="251.42666666666665" height="156.33333333333334" x="1096.5733333333333" y="202.33333333333334" style="opacity: 0.88; transition: opacity 0.8s;"></image><rect x="1097.5733333333333" y="203.33333333333334" width="249.42666666666665" height="154.33333333333334" fill="none" stroke="#ff2a2a" stroke-width="0.6" opacity="0.25"></rect></g><rect x="573.72" y="368.6666666666667" width="251.42666666666665" height="156.33333333333334" fill="#0a0e14" stroke="#141a24" stroke-width="1" rx="2"></rect><rect x="577.72" y="372.6666666666667" width="243.42666666666665" height="148.33333333333334" fill="none" stroke="#0f141c" stroke-width="0.5" stroke-dasharray="2 4"></rect><clippath id="clip-cell-6"><rect x="573.72" y="368.6666666666667" width="251.42666666666665" height="156.33333333333334"></rect></clippath><g data-cell="6" clip-path="url(#clip-cell-6)"><image href="https://platform-outputs.agnes-ai.space/images/t2i/task_Yykzq7o4tPQv53oSqnq1gzI4dw52auwb/output_570c63334464475185903c5cfbb61721.png" preserveAspectRatio="xMidYMid slice" width="251.42666666666665" height="156.33333333333334" x="573.72" y="368.6666666666667" style="opacity: 0.88; transition: opacity 0.8s;"></image><rect x="574.72" y="369.6666666666667" width="249.42666666666665" height="154.33333333333334" fill="none" stroke="#ff2a2a" stroke-width="0.6" opacity="0.25"></rect></g><rect x="835.1466666666666" y="368.6666666666667" width="251.42666666666665" height="156.33333333333334" fill="#0a0e14" stroke="#141a24" stroke-width="1" rx="2"></rect><rect x="839.1466666666666" y="372.6666666666667" width="243.42666666666665" height="148.33333333333334" fill="none" stroke="#0f141c" stroke-width="0.5" stroke-dasharray="2 4"></rect><clippath id="clip-cell-7"><rect x="835.1466666666666" y="368.6666666666667" width="251.42666666666665" height="156.33333333333334"></rect></clippath><g data-cell="7" clip-path="url(#clip-cell-7)"><image href="https://platform-outputs.agnes-ai.space/images/t2i/task_0aoz5hEp8YoiFE6lbOzBXeEAGNSb9fob/output_546a34781df94465836bafadc5f5a804.png" preserveAspectRatio="xMidYMid slice" width="251.42666666666665" height="156.33333333333334" x="835.1466666666666" y="368.6666666666667" style="opacity: 0.88; transition: opacity 0.8s;"></image><rect x="836.1466666666666" y="369.6666666666667" width="249.42666666666665" height="154.33333333333334" fill="none" stroke="#ff2a2a" stroke-width="0.6" opacity="0.25"></rect></g><rect x="1096.5733333333333" y="368.6666666666667" width="251.42666666666665" height="156.33333333333334" fill="#0a0e14" stroke="#141a24" stroke-width="1" rx="2"></rect><rect x="1100.5733333333333" y="372.6666666666667" width="243.42666666666665" height="148.33333333333334" fill="none" stroke="#0f141c" stroke-width="0.5" stroke-dasharray="2 4"></rect><clippath id="clip-cell-8"><rect x="1096.5733333333333" y="368.6666666666667" width="251.42666666666665" height="156.33333333333334"></rect></clippath><g data-cell="8" clip-path="url(#clip-cell-8)"><image href="https://platform-outputs.agnes-ai.space/images/t2i/task_ZCcd09LGVLGRtNsVMbb6lM1xpJcujcbv/output_4071c1db4cab4c5f8f9fad4e117fdced.png" preserveAspectRatio="xMidYMid slice" width="251.42666666666665" height="156.33333333333334" x="1096.5733333333333" y="368.6666666666667" style="opacity: 0.88; transition: opacity 0.8s;"></image><rect x="1097.5733333333333" y="369.6666666666667" width="249.42666666666665" height="154.33333333333334" fill="none" stroke="#ff2a2a" stroke-width="0.6" opacity="0.25"></rect></g></g>
+
+  <!-- Œil HAL -->
+  <g id="hal-eye" transform="translate(10, 10) scale(0.000)">
+    <circle id="hal-halo" r="120" fill="url(#redGlow)" filter="url(#halo)" opacity="0.28"></circle>
+    <circle r="92" fill="url(#ringMetal)" stroke="#141a24" stroke-width="1.5"></circle>
+    <circle r="74" fill="none" stroke="#1a222e" stroke-width="0.8"></circle>
+    <circle id="eye-glow" r="48" fill="url(#redGlow)" filter="url(#softGlow)"></circle>
+    <g id="pupil-group" transform="translate(25.40, 8.52)">
+      <circle r="15" fill="#ff2222" opacity="0.95"></circle>
+      <circle r="5" fill="#ffffff" opacity="0.3"></circle>
+    </g>
+    <circle id="loader-arc" r="100" fill="none" stroke="#ff1a1a" stroke-width="2" stroke-dasharray="65 563" stroke-linecap="round" opacity="0" transform="rotate(264)"></circle>
+  </g>
+
+  <!-- Accent visuel (9ème générateur) -->
+  <g id="accent-g"><image href="https://platform-outputs.agnes-ai.space/images/t2i/task_JCraUPv1Yv2B7WVPfbltKaymZTcXoEPB/output_4aceedb6497442c9a8d98c6c2e07f86b.png" x="1258" y="505" width="84" height="84" preserveAspectRatio="xMidYMid slice" style="opacity: 0.7; transition: opacity 0.6s;"></image></g>
+</svg>
+
+<!-- ============ PANNEAU CHAT ============ -->
+<div id="chat-panel">
+  <div id="messages"><div class="msg user">salut</div><div class="msg assistant">
+
+Salut ! Comment puis-je t’aider ?</div><div class="msg user">j'aime beaucoup les chats, et toi ?</div><div class="msg assistant">
+
+Les chats sont effectivement adorables ! Moi je suis une IA, donc je ne ressens pas d'affection, mais j'adore en parler 😺
+
+Tu as un chat ?</div><div class="msg user">non mais j'en ai eu</div><div class="msg assistant">
+
+Ah, tu en as déjà eu ! C'est toujours merveilleux d'avoir partagé sa vie avec eux 🐾 
+
+Tu as eu quel type de chat ? Tu penses peut-être à en adopter un nouveau un jour ?</div><div class="msg user">j'aime les chiens</div><div class="msg assistant">
+
+Ah ! Les chiens sont incroyables aussi 🐕 Leur loyauté et leur joie de vivre ont quelque chose de magique.
+
+Tu as un chien en ce moment ? Ou c'est une préférence au cas où tu en adopterais un un jour ?</div></div>
+  <div id="input-area">
+    <textarea id="api-keys" placeholder="Clés API (1 par ligne). Ligne 1 = chat (agnes-2.5-flash). Lignes 2-10 = images (agnes-image-2.5-flash)."></textarea>
+    <div id="input-row">
+      <textarea id="question" placeholder="Posez votre question… (ex: parle-moi des sushis)"></textarea>
+      <button id="send-btn">ENVOYER</button>
+    </div>
+  </div>
+</div>
+
+<div id="status" class="">STANDBY</div>
+<div id="svg-counter">IMAGES: 8 / 9</div>
 
 <script>
-/* ═════════════════════════════════════════════════════════════════════
-   CONFIG
-   ═════════════════════════════════════════════════════════════════════ */
-const API='https://apihub.agnes-ai.com/v1',POLL='https://apihub.agnes-ai.com/agnesapi';
-const TXT=['agnes-3.0-flash','agnes-2.5-flash'],IMG='agnes-image-2.5-flash',VID={free:'agnes-video-v2.0',plan:'agnes-video-2.5-flash'};
-const RPM={free:{img:10,vid:1,txt:10},plan:{img:100,vid:5,txt:600}};
-const STEPS=['Clés','Genre','Synopsis','Personnages','Scènes','Plans','Vidéos'];
-const BACK=[3,6,12,24,48,96];
-const G=[['Fiction',[
-  "Court-métrage d'auteur|contemplative arthouse short film, natural light, 35mm grain",
-  "Drame|naturalistic drama, muted palette, intimate framing",
-  "Comédie|bright warm comedy, lively colors, wide lenses",
-  "Thriller|tense thriller, low-key lighting, cold teal tones",
-  "Horreur|atmospheric horror, deep shadows, desaturated",
-  "Science-fiction|visionary sci-fi, vast futuristic scale, clean cold light",
-  "Fantasy|epic fantasy, painterly landscapes, golden hour",
-  "Western|dusty western, anamorphic wide, sun-baked tones",
-  "Film noir|black and white film noir, hard shadows, rain",
-  "Romance|soft romantic cinema, warm bokeh, pastel light",
-  "Aventure|adventure blockbuster, dynamic wide shots, saturated",
-  "Action|kinetic action, high contrast, motion energy",
-  "Guerre|gritty war film, desaturated, handheld",
-  "Historique|period drama, authentic costumes, candlelight",
-  "Policier|crime investigation, neon night city, moody",
-  "Cyberpunk|cyberpunk neon rain, dense city, magenta and cyan",
-  "Post-apocalyptique|post-apocalyptic wasteland, rusted ruins, dusty light",
-  "Conte merveilleux|fairy tale storybook cinema, magical glow"
-]],['Réel',[
-  "Documentaire|observational documentary, natural light, real locations",
-  "Docu-fiction|docu-fiction hybrid, handheld, authentic",
-  "Biopic|biographical drama, period accurate, intimate close-ups",
-  "Reportage|journalistic report, handheld, available light",
-  "Film nature|nature documentary, telephoto wildlife, majestic landscapes",
-  "Film d'archives|archival footage look, grainy, faded colors"
-]],['Animation',[
-  "Animation 2D|hand-drawn 2D animation, flat colors, ink outlines",
-  "Anime|japanese anime cinematic, detailed backgrounds, dramatic lighting",
-  "Stop-motion|stop-motion puppets, handmade textures, tabletop sets",
-  "Dessin animé enfants|colorful kids cartoon, rounded shapes, cheerful",
-  "Style Moebius|Moebius ligne claire comic art, pastel desert colors, flat non-3D drawing"
-]],['Expérimental',[
-  "Poème visuel|poetic visual essay, abstract imagery, slow",
-  "Film contemplatif|slow cinema, long takes, static framing",
-  "Film muet|silent film look, expressive acting, grain",
-  "Vidéo-art|video art, surreal, bold color fields",
-  "Plan-séquence|single continuous take, tracking camera, seamless"
-]],['Formats courts',[
-  "Bande-annonce|movie trailer, epic cuts, dramatic lighting",
-  "Publicité|premium commercial, glossy, product hero shots",
-  "Clip musical|music video, stylized, rhythmic visuals",
-  "Teaser|teaser, mysterious, minimal reveals"
-]]];
+/* ============================================================
+   1. CONFIGURATION
+   ============================================================ */
+const API_BASE    = 'https://apihub.agnes-ai.com/v1';
+const MODEL_TEXT  = 'agnes-2.5-flash';
+const MODEL_IMAGE = 'agnes-image-2.5-flash';
+const COOKIE_NAME = 'hal_api_keys';
 
-/* ═════════════════════════════════════════════════════════════════════
-   UTILS
-   ═════════════════════════════════════════════════════════════════════ */
-const $=s=>document.querySelector(s);
-const sleep=ms=>new Promise(r=>setTimeout(r,ms));
-const uid=()=>Math.random().toString(36).slice(2,9);
-const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const san=t=>String(t==null?'':t).replace(/[‘’]/g,"'").replace(/[“”«»]/g,'"').replace(/[–—]/g,'-').replace(/…/g,'...').replace(/[\u00a0\u202f]/g,' ');
+/* Rôles visuels — chacun est assigné à une case et reçoit un prompt d'image */
+const SVG_ROLES = [
+  { name: 'sujet',     prompt: 'The main subject or object of the conversation. Isolated, recognizable, clean composition, dark background with red accents.' },
+  { name: 'decor',     prompt: 'Background environment or setting related to the conversation. Atmospheric, wide, minimalist, dark tones.' },
+  { name: 'detail',    prompt: 'A small detail or ornament related to the subject. Close-up, fine lines, monochrome with a red accent.' },
+  { name: 'ambiance',  prompt: 'An abstract texture or mood piece evoking the theme. Geometric, atmospheric, dark and red.' },
+  { name: 'objet2',    prompt: 'A secondary object or element mentioned in the conversation. Clean, isolated, minimal.' },
+  { name: 'structure', prompt: 'A geometric structure or frame surrounding the theme. Architectural lines, technical diagram style.' },
+  { name: 'symbole',   prompt: 'A minimalist symbol or icon representing the theme. Very simple, 2-3 strokes, red accent.' },
+  { name: 'ornement',  prompt: 'An abstract ornamental pattern or curve related to the theme. Decorative, flowing lines.' },
+  { name: 'accent',    prompt: 'A small visual accent or highlight (spark, star, point) to punctuate the composition. Minimal, red.' }
+];
 
-/* ═════════════════════════════════════════════════════════════════════
-   STATE
-   ═════════════════════════════════════════════════════════════════════ */
-let db,P=null,Q=null,page=0,F=1,playing=false,TASK=null;
-const KEYS={list:[],plan:'free'};
-const AR=()=>(P?P.ratio:'16:9').replace(':','/');
-const ref=i=>i&&(i.d||i.u);
-const mkKey=k=>({k,img:0,vid:0,txt:0,cool:0,bad:0,off:false});
+const GRID = [
+  { col: 0, row: 0 }, { col: 1, row: 0 }, { col: 2, row: 0 },
+  { col: 0, row: 1 }, { col: 1, row: 1 }, { col: 2, row: 1 },
+  { col: 0, row: 2 }, { col: 1, row: 2 }, { col: 2, row: 2 },
+];
 
-/* ═════════════════════════════════════════════════════════════════════
-   STOCKAGE
-   ═════════════════════════════════════════════════════════════════════ */
-function openDB(){return new Promise((res,rej)=>{const r=indexedDB.open('cinegenesis_v1',1);r.onerror=()=>rej(r.error);r.onsuccess=()=>res(r.result);r.onupgradeneeded=e=>{const d=e.target.result;if(!d.objectStoreNames.contains('sessions'))d.createObjectStore('sessions',{keyPath:'id'});if(!d.objectStoreNames.contains('config'))d.createObjectStore('config',{keyPath:'key'})}})}
-const tx=(s,m,f)=>new Promise((res,rej)=>{try{const r=f(db.transaction(s,m).objectStore(s));r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)}catch(e){rej(e)}});
-let mode='idb';const mem={sessions:{},config:{}},lsK=(s,k)=>'cg1_'+s+'_'+k;
-function fall(e){if(mode=='idb'){mode='ls';log('wr','IndexedDB indisponible ('+(e&&e.message)+') → stockage de secours');toast('Stockage navigateur limité : sauvegarde de secours activée')}}
-async function dbGet(s,k){if(db&&mode=='idb'){try{return await tx(s,'readonly',o=>o.get(k))}catch(e){fall(e)}}try{const v=localStorage.getItem(lsK(s,k));if(v!=null)return JSON.parse(v)}catch(e){}return mem[s][k]}
-async function dbPut(s,v){const k=v.key||v.id;mem[s][k]=v;if(db&&mode=='idb'){try{return await tx(s,'readwrite',o=>o.put(v))}catch(e){fall(e)}}try{localStorage.setItem(lsK(s,k),JSON.stringify(v))}catch(e){}}
-async function dbDel(s,k){delete mem[s][k];if(db&&mode=='idb'){try{return await tx(s,'readwrite',o=>o.delete(k))}catch(e){fall(e)}}try{localStorage.removeItem(lsK(s,k))}catch(e){}}
-async function dbAll(s){if(db&&mode=='idb'){try{return await tx(s,'readonly',o=>o.getAll())}catch(e){fall(e)}}const o=Object.assign({},mem[s]);try{for(let i=0;i<localStorage.length;i++){const n=localStorage.key(i);if(n.startsWith(lsK(s,''))){const v=JSON.parse(localStorage.getItem(n));o[v.key||v.id]=v}}}catch(e){}return Object.values(o)}
-let svT;function save(){if(!P)return;clearTimeout(svT);svT=setTimeout(()=>{P.upd=Date.now();dbPut('sessions',P).catch(e=>log('er','sauvegarde : '+e.message))},350)}
-
-/* ═════════════════════════════════════════════════════════════════════
-   LOG / TOAST
-   ═════════════════════════════════════════════════════════════════════ */
-function log(l,m){const d=document.createElement('div');d.className='lg '+l;d.textContent=new Date().toLocaleTimeString('fr-FR')+'  '+m;const b=$('#lb');if(!b)return;b.appendChild(d);while(b.children.length>400)b.firstChild.remove();b.scrollTop=b.scrollHeight}
-function toast(m){const d=document.createElement('div');d.textContent=m;$('#toast').appendChild(d);setTimeout(()=>d.remove(),4200)}
-
-/* ═════════════════════════════════════════════════════════════════════
-   PLANIFICATEUR MULTI-CLÉS
-   ═════════════════════════════════════════════════════════════════════ */
-async function slot(kind){
-  for(;;){
-    if(TASK&&TASK.stop)throw new Error('stop');
-    const live=KEYS.list.filter(o=>!o.off);
-    if(!live.length)throw Object.assign(new Error('Aucune clé active'),{fatal:true});
-    const iv=60000/RPM[KEYS.plan][kind]*1.15*F,now=Date.now();
-    let best=null,bt=1e18;
-    for(const o of live){
-      const t=Math.max(o[kind]||0,o.cool||0,now);
-      if(t<bt){bt=t;best=o}
-    }
-    if(bt>now){
-      await sleep(Math.min(bt-now,400));
-      continue;
-    }
-    if(best.cool>Date.now())continue;
-    best[kind]=now+iv;
-    return best;
-  }
-}
-async function call(kind,url,body,tries){
-  let err;
-  for(let a=0;a<tries;a++){
-    const o=await slot(kind);
-    try{
-      const r=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+o.k},body:JSON.stringify(body)});
-      if(r.ok){o.bad=0;F=Math.max(1,F*0.97);return r}
-      const t=(await r.text()).slice(0,200);log('er',kind+' HTTP '+r.status+' '+t);
-      if(r.status==429){o.cool=Date.now()+(parseInt(r.headers.get('Retry-After'))||25)*1000;F=Math.min(4,F*1.5);err=new Error('429');continue}
-      if(r.status==401||r.status==402||r.status==403){if(++o.bad>=2){o.off=true;log('wr','clé …'+o.k.slice(-4)+' désactivée')}err=new Error('HTTP '+r.status);continue}
-      if(r.status>=500||r.status==408){err=new Error('HTTP '+r.status);await sleep(2000*Math.pow(2,a));continue}
-      throw Object.assign(new Error('HTTP '+r.status+' '+t),{fatal:true});
-    }catch(e){
-      if(e.fatal||e.message=='stop')throw e;
-      err=e;
-      await sleep(1500*(a+1));
-    }
-  }
-  throw err||new Error('échec');
-}
-
-/* ═════════════════════════════════════════════════════════════════════
-   JSON PARSER
-   ═════════════════════════════════════════════════════════════════════ */
-function J(t){
-  if(!t)return null;
-  let c=String(t).replace(/```json|```/g,'');
-  const a=c.indexOf('{'),b=c.lastIndexOf('}');
-  if(a<0||b<0)return null;
-  c=c.slice(a,b+1);
-  try{return JSON.parse(c)}catch(e){}
-  let o='',s=false,x=false;
-  for(let i=0;i<c.length;i++){
-    const ch=c[i];
-    if(x){o+=ch;x=false;continue}
-    if(ch=='\\'){o+=ch;x=true;continue}
-    if(ch=='"'){s=!s;o+=ch;continue}
-    if(s&&ch=='\n'){o+='\\n';continue}
-    if(s&&ch=='\r'){continue}
-    if(s&&ch.charCodeAt(0)<32){o+=' ';continue}
-    o+=ch;
-  }
-  try{return JSON.parse(o.replace(/,\s*([}\]])/g,'$1'))}catch(e){return null}
-}
-
-/* ═════════════════════════════════════════════════════════════════════
-   IA — CHAT / JSON
-   ═════════════════════════════════════════════════════════════════════ */
-async function chat(sys,user,max,temp,imgs){
-  for(let i=0;i<TXT.length;i++){
-    const m=TXT[i];
-    try{
-      const c=imgs&&imgs.length?[{type:'text',text:user}].concat(imgs.map(u=>({type:'image_url',image_url:{url:u}}))):user;
-      const r=await call('txt',API+'/chat/completions',{model:m,messages:[{role:'system',content:sys},{role:'user',content:c}],temperature:temp,max_tokens:max,chat_template_kwargs:{enable_thinking:false}},3);
-      const d=await r.json();
-      const t=d.choices&&d.choices[0]&&d.choices[0].message&&d.choices[0].message.content;
-      if(t)return t;
-    }catch(e){
-      if(e.fatal||e.message=='stop')throw e;
-      log('wr','texte '+m+' : '+e.message);
-    }
-  }
-  throw new Error('IA texte indisponible');
-}
-async function llmJSON(sys,user,max,temp,imgs){
-  for(let a=0;a<2;a++){
-    const j=J(await chat(sys+' Réponds UNIQUEMENT par un objet JSON valide, sans texte autour.',user,max,temp,imgs));
-    if(j)return j;
-  }
-  throw new Error('Réponse IA illisible (JSON)');
-}
-
-/* ═════════════════════════════════════════════════════════════════════
-   IMAGES — CONVERSION ASYNCHRONE NON BLOQUANTE
-   ═════════════════════════════════════════════════════════════════════ */
-/* Convertit une URL en data URI. Ne bloque PAS le pipeline : utilisé
-   uniquement en arrière-plan ou quand une référence est nécessaire. */
-function toData(u){
-  return new Promise(resolve=>{
-    if(!u)return resolve(null);
-    if(u.indexOf('data:')===0)return resolve(u);
-    fetch(u).then(r=>r.blob()).then(b=>{
-      const o=URL.createObjectURL(b),im=new Image();
-      im.onload=()=>{
-        try{
-          const s=Math.min(1,1024/Math.max(im.width,im.height));
-          const c=document.createElement('canvas');
-          c.width=Math.round(im.width*s);c.height=Math.round(im.height*s);
-          c.getContext('2d').drawImage(im,0,0,c.width,c.height);
-          URL.revokeObjectURL(o);
-          resolve(c.toDataURL('image/jpeg',0.86));
-        }catch(e){URL.revokeObjectURL(o);resolve(null)}
-      };
-      im.onerror=()=>{URL.revokeObjectURL(o);resolve(null)};
-      im.src=o;
-    }).catch(()=>resolve(null));
-  });
-}
-/* Lance la génération d'image et retourne immédiatement l'URL.
-   La conversion en data URI se fait en arrière-plan (utilisée plus tard
-   seulement si l'image sert de référence à une autre génération). */
-function mkImg(prompt,refUris,ratio){
-  const body={model:IMG,prompt:san(prompt),n:1,size:'1K',ratio:ratio||P.ratio,extra_body:{response_format:'url'}};
-  if(refUris&&refUris.length)body.extra_body.image=refUris.filter(Boolean).slice(0,4);
-  return call('img',API+'/images/generations',body,3).then(r=>r.json()).then(d=>{
-    const it=d.data&&d.data[0];
-    const u=it&&(it.url||(it.b64_json&&'data:image/png;base64,'+it.b64_json));
-    if(!u)throw new Error('pas d\'image reçue');
-    const img={u:u,d:u.indexOf('data:')===0?u:null};
-    if(!img.d){
-      // Conversion en arrière-plan : ne bloque pas le pipeline
-      img._conv=toData(u).then(dd=>{img.d=dd||u;return img.d}).catch(()=>{img.d=u;return img.d});
-    }
-    return img;
-  });
-}
-/* Retourne une promesse vers le data URI de l'image (conversion à la demande) */
-function ensureRef(img){
-  if(!img)return Promise.resolve(null);
-  if(img.d)return Promise.resolve(img.d);
-  if(img._conv)return img._conv;
-  img._conv=toData(img.u).then(dd=>{img.d=dd||img.u;return img.d}).catch(()=>{img.d=img.u;return img.d});
-  return img._conv;
-}
-function readFile(f,maxSide){
-  return new Promise(res=>{
-    const fr=new FileReader();
-    fr.onload=()=>{
-      const im=new Image();
-      im.onload=()=>{
-        const s=Math.min(1,maxSide/Math.max(im.width,im.height));
-        const c=document.createElement('canvas');
-        c.width=Math.round(im.width*s);c.height=Math.round(im.height*s);
-        c.getContext('2d').drawImage(im,0,0,c.width,c.height);
-        const d=c.toDataURL('image/jpeg',0.88);
-        res({u:d,d:d});
-      };
-      im.onerror=()=>res(null);
-      im.src=fr.result;
-    };
-    fr.readAsDataURL(f);
-  });
-}
-
-/* ═════════════════════════════════════════════════════════════════════
-   MODÈLE DE PROJET
-   ═════════════════════════════════════════════════════════════════════ */
-const newP=()=>({
-  id:uid()+uid(),
-  created:Date.now(),
-  upd:Date.now(),
-  page:0,last:1,max:0,
-  genre:null,ratio:'16:9',
-  synRaw:'',syn:null,final:'',title:'',
-  nsc:5,
-  chars:[],scenes:[],
-  sub:{},
-  q:{step:0,next:0,st:'idle',on:false}
-});
-function setP(p){
-  P=p;
-  P.sub=P.sub||{};
-  Q=P.q=P.q||{step:0,next:0,st:'idle',on:false};
-  P.chars=P.chars||[];
-  P.scenes=P.scenes||[];
-  P.chars.forEach(c=>c.busy=false);
-  P.scenes.forEach(s=>{
-    s.busy=false;
-    (s.shots||[]).forEach(h=>{
-      h.busy=false;
-      if(h.vst=='run'&&!h.task)h.vst='wait';
-    });
-  });
-  dbPut('config',{key:'last',v:P.id});
-}
-const shots=()=>{
-  const out=[];
-  P.scenes.forEach(s=>{(s.shots||[]).forEach(h=>out.push({h:h,s:s}))});
-  return out;
+const ROLE_CELL = {
+  'sujet': 0, 'decor': 1, 'detail': 2,
+  'ambiance': 3, 'objet2': 5,
+  'structure': 6, 'symbole': 7, 'ornement': 8,
+  'accent': -1
 };
-const allObjs=()=>{
-  const arr=[].concat(P.chars,P.scenes);
-  P.scenes.forEach(s=>(s.shots||[]).forEach(h=>arr.push(h)));
-  return arr;
-};
-const anyBusy=()=>allObjs().some(o=>o.busy);
-function find(id){
-  if(id=='P')return{t:'p',o:P};
-  for(let i=0;i<P.chars.length;i++)if(P.chars[i].id==id)return{t:'c',o:P.chars[i]};
-  for(let i=0;i<P.scenes.length;i++){
-    const s=P.scenes[i];
-    if(s.id==id)return{t:'s',o:s};
-    const sh=s.shots||[];
-    for(let j=0;j<sh.length;j++)if(sh[j].id==id)return{t:'h',o:sh[j],s:s};
+
+/* ============================================================
+   2. DOM
+   ============================================================ */
+const svgStage    = document.getElementById('stage');
+const halEye      = document.getElementById('hal-eye');
+const pupilGroup  = document.getElementById('pupil-group');
+const eyeGlow     = document.getElementById('eye-glow');
+const halo        = document.getElementById('hal-halo');
+const loaderArc   = document.getElementById('loader-arc');
+const cellsLayer  = document.getElementById('cells-layer');
+const messagesEl  = document.getElementById('messages');
+const apiKeysEl   = document.getElementById('api-keys');
+const questionEl  = document.getElementById('question');
+const sendBtn     = document.getElementById('send-btn');
+const statusEl    = document.getElementById('status');
+const svgCounter  = document.getElementById('svg-counter');
+
+/* ============================================================
+   3. GRILLE — construction des cases
+   ============================================================ */
+let gridMetrics = { cellW: 0, cellH: 0, offsetX: 0, offsetY: 0, gap: 10 };
+const cellElements = {};
+const cellFilled = {};
+
+function buildGrid() {
+  const w = window.innerWidth, h = window.innerHeight;
+  const marginLeft = Math.min(600, w * 0.42);
+  const marginBottom = 120;
+  const marginTop = 36;
+  const marginRight = 18;
+
+  const availW = w - marginLeft - marginRight;
+  const availH = h - marginTop - marginBottom;
+  const gap = gridMetrics.gap;
+  const cellW = (availW - gap * 2) / 3;
+  const cellH = (availH - gap * 2) / 3;
+  const offsetX = marginLeft;
+  const offsetY = marginTop;
+
+  gridMetrics = { cellW, cellH, offsetX, offsetY, gap };
+
+  cellsLayer.innerHTML = '';
+
+  GRID.forEach((pos, idx) => {
+    const isCenter = pos.col === 1 && pos.row === 1;
+    const x = offsetX + pos.col * (cellW + gap);
+    const y = offsetY + pos.row * (cellH + gap);
+
+    // Cadre de la case
+    const frame = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    frame.setAttribute('x', x);
+    frame.setAttribute('y', y);
+    frame.setAttribute('width', cellW);
+    frame.setAttribute('height', cellH);
+    frame.setAttribute('fill', isCenter ? 'none' : '#0a0e14');
+    frame.setAttribute('stroke', '#141a24');
+    frame.setAttribute('stroke-width', '1');
+    frame.setAttribute('rx', '2');
+    cellsLayer.appendChild(frame);
+
+    // Lignes décoratives internes (style tech)
+    if (!isCenter) {
+      const inner = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      inner.setAttribute('x', x + 4);
+      inner.setAttribute('y', y + 4);
+      inner.setAttribute('width', cellW - 8);
+      inner.setAttribute('height', cellH - 8);
+      inner.setAttribute('fill', 'none');
+      inner.setAttribute('stroke', '#0f141c');
+      inner.setAttribute('stroke-width', '0.5');
+      inner.setAttribute('stroke-dasharray', '2 4');
+      cellsLayer.appendChild(inner);
+    }
+
+    if (isCenter) return;
+
+    // Groupe conteneur pour l'œuvre
+    const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    g.setAttribute('data-cell', idx);
+
+    // Clip pour confinement
+    const clipId = `clip-cell-${idx}`;
+    const clip = document.createElementNS('http://www.w3.org/2000/svg', 'clipPath');
+    clip.setAttribute('id', clipId);
+    const clipRect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    clipRect.setAttribute('x', x);
+    clipRect.setAttribute('y', y);
+    clipRect.setAttribute('width', cellW);
+    clipRect.setAttribute('height', cellH);
+    clip.appendChild(clipRect);
+    cellsLayer.appendChild(clip);
+    g.setAttribute('clip-path', `url(#${clipId})`);
+
+    cellsLayer.appendChild(g);
+    g._cellGeom = { x, y, w: cellW, h: cellH };
+  });
+
+  // Repositionner les œuvres existantes (resize)
+  Object.entries(cellElements).forEach(([role, data]) => {
+    const cellIdx = ROLE_CELL[role];
+    if (cellIdx === -1 || cellIdx === undefined) return;
+    const g = findCellGroup(cellIdx);
+    if (g && data.el) positionElementInCell(data.el, g._cellGeom);
+  });
+}
+
+function findCellGroup(cellIdx) {
+  const groups = cellsLayer.querySelectorAll('g[data-cell]');
+  for (const g of groups) {
+    if (parseInt(g.getAttribute('data-cell'), 10) === cellIdx) return g;
   }
   return null;
 }
 
-/* ═════════════════════════════════════════════════════════════════════
-   HELPERS MÉTIER
-   ═════════════════════════════════════════════════════════════════════ */
-const sheet=n=>P.chars.filter(c=>n&&n.indexOf(c.name)>=0).map(c=>c.name+': '+c.desc+(c.outfit?', wearing '+c.outfit:'')).join('; ');
-/* Retourne les OBJETS image des personnages présents (pour ensureRef) */
-const cImgs=n=>P.chars.filter(c=>n&&n.indexOf(c.name)>=0&&c.img).map(c=>c.img).slice(0,3);
-const st=()=>P.genre?P.genre.style:'cinematic';
+/* ============================================================
+   4. DIMENSIONNEMENT + ŒIL
+   ============================================================ */
+let eyeCenter = { x: 0, y: 0 };
 
-function promptFor(f){
-  const o=f.o;
-  if(f.t=='c'){
-    return {
-      p:'Full-body character reference, plain neutral background, '+st()+'. '+o.name+': '+o.desc+'. '+(o.outfit?'Wearing: '+o.outfit+'.':'')+' No text, no watermark.',
-      refs:[],
-      ratio:'9:16'
-    };
-  }
-  if(f.t=='s'){
-    const sh=sheet(o.chars);
-    return {
-      p:'Cinematic establishing frame. '+st()+'. Setting: '+o.decor+'. Mood: '+o.mood+'. '+(sh?'Characters present (identical to references): '+sh+'.':'')+' No text, no watermark.',
-      refs:cImgs(o.chars)
-    };
-  }
-  // shot
-  const sh=sheet(o.chars);
-  return {
-    p:'Cinematic film still, '+(o.size||'medium')+' shot. '+st()+'. Setting: '+f.s.decor+'. Action: '+o.action+'. Camera: '+o.camera+'. Characters (identical face, hair and outfit as the reference images): '+(sh||'none')+'. No text, no watermark.',
-    refs:cImgs(o.chars).concat(f.s.img?[f.s.img]:[])
-  };
-}
+function resizeStage() {
+  const w = window.innerWidth, h = window.innerHeight;
+  svgStage.setAttribute('viewBox', `0 0 ${w} ${h}`);
+  svgStage.setAttribute('width', w);
+  svgStage.setAttribute('height', h);
 
-/* ═════════════════════════════════════════════════════════════════════
-   GÉNÉRATION D'IMAGE
-   ═════════════════════════════════════════════════════════════════════ */
-async function gen(id,opt){
-  opt=opt||{};
-  const f=find(id);
-  if(!f||f.o.busy)return;
-  const o=f.o;
-  o.busy=true;o.err='';refresh(id);
-  try{
-    const q=promptFor(f);
-    let p=q.p;
-    let refObjs=q.refs.filter(Boolean);
-    if(opt.edit&&o.img){
-      refObjs=[o.img].concat(refObjs);
-      p+=' Edit the first reference image: '+opt.extra+'. Keep everything else identical.';
-    }else if(opt.extra){
-      p+=' '+opt.extra+'.';
-    }
-    // Convertit les références en data URI (déjà en cache si déjà générées)
-    const refUris=[];
-    for(let i=0;i<refObjs.length;i++){
-      const uri=await ensureRef(refObjs[i]);
-      if(uri)refUris.push(uri);
-    }
-    o.img=await mkImg(p,refUris,q.ratio);
-  }catch(e){
-    if(e.message!='stop'){
-      o.err='Échec : '+String(e.message).slice(0,80);
-      log('er','image : '+e.message);
-    }
-  }
-  o.busy=false;refresh(id);save();
+  const g = gridMetrics;
+  const cx = g.offsetX + 1 * (g.cellW + g.gap) + g.cellW / 2;
+  const cy = g.offsetY + 1 * (g.cellH + g.gap) + g.cellH / 2;
+  const scale = Math.min(g.cellW, g.cellH) / 240;
+  halEye.setAttribute('transform', `translate(${cx}, ${cy}) scale(${scale.toFixed(3)})`);
+  eyeCenter.x = cx;
+  eyeCenter.y = cy;
+
+  buildGrid();
 }
-async function imgPass(list,label){
-  const todo=list.filter(o=>!o.img);
-  if(!todo.length)return;
-  setTiles(list);
-  const it=fd('Création des '+label+' (0/'+todo.length+')');
-  setPg(0,todo.length);
-  let n=0;
-  await Promise.all(todo.map(async o=>{
-    await gen(o.id);
-    n++;
-    setPg(n,todo.length);
-    it.t='Création des '+label+' ('+n+'/'+todo.length+')';
-    paintFeed();
-  }));
-  chk();
-  const miss=list.filter(o=>!o.img);
-  if(miss.length){
-    it.t='Nouvel essai pour '+miss.length+' image(s)…';
-    paintFeed();
-    await Promise.all(miss.map(o=>gen(o.id)));
-    chk();
-  }
-  fdDone(it,list.filter(o=>o.img).length+'/'+list.length+' '+label+' prêt(e)s');
+window.addEventListener('resize', resizeStage);
+resizeStage();
+
+/* Suivi souris */
+let mouseX = 0, mouseY = 0;
+document.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; });
+
+let currentPupil = { x: 0, y: 0 };
+function animatePupil() {
+  const dx = mouseX - eyeCenter.x;
+  const dy = mouseY - eyeCenter.y;
+  const dist = Math.sqrt(dx*dx + dy*dy) || 1;
+  const maxR = 28;
+  const r = Math.min(maxR, dist * 0.07);
+  const tx = (dx / dist) * r;
+  const ty = (dy / dist) * r;
+  currentPupil.x += (tx - currentPupil.x) * 0.15;
+  currentPupil.y += (ty - currentPupil.y) * 0.15;
+  pupilGroup.setAttribute('transform', `translate(${currentPupil.x.toFixed(2)}, ${currentPupil.y.toFixed(2)})`);
+  requestAnimationFrame(animatePupil);
+}
+animatePupil();
+
+/* ============================================================
+   5. ÉTATS VISUELS
+   ============================================================ */
+let pulseInterval = null;
+
+function startThinking() {
+  statusEl.textContent = 'PROCESSING';
+  statusEl.classList.add('active');
+  loaderArc.setAttribute('opacity', '1');
+  let angle = 0;
+  pulseInterval = setInterval(() => {
+    angle = (angle + 6) % 360;
+    loaderArc.setAttribute('transform', `rotate(${angle})`);
+    const s = 1 + Math.sin(Date.now() / 170) * 0.05;
+    eyeGlow.setAttribute('r', (48 * s).toFixed(2));
+    halo.setAttribute('r', (120 * s).toFixed(2));
+  }, 16);
 }
 
-/* ═════════════════════════════════════════════════════════════════════
-   AFFICHAGE
-   ═════════════════════════════════════════════════════════════════════ */
-const guide=(h,c)=>'<div class="guide '+(c||'')+'"><div>'+h+'</div></div>';
-const hd=(n,t)=>'<div class="lab">ÉTAPE '+n+' / 7</div><h2>'+t+'</h2>';
-const btn=(a,l,c,x)=>'<button class="'+(c||'')+'" data-a="'+a+'" '+(x||'')+'>'+l+'</button>';
-const foot=(prev,next)=>'<div class="ft">'+(prev||'<span></span>')+(next||'')+'</div>';
-const nextBtn=(a,l,x)=>'<button class="big" id="nx" data-a="'+a+'" data-lbl="'+esc(l)+'" '+(x||'')+'>'+l+' →</button>';
-function syncNext(){const b=$('#nx');if(!b)return;const bz=anyBusy();b.disabled=bz||b.dataset.off=='1';b.textContent=bz?'Images en cours…':b.dataset.lbl+' →'}
-const imBox=(o,r)=>'<div class="im" style="aspect-ratio:'+(r||AR())+'">'+(o.img?'<img src="'+esc(ref(o.img))+'" alt="">':'<span>'+(o.busy?'création…':'pas d\'image')+'</span>')+(o.busy?'<i class="sp"></i>':'')+'</div>';
-const imgPanel=o=>'<div class="ip"><input type="text" data-mod="'+o.id+'" placeholder="Votre demande : ex. cheveux roux, ajoute un chapeau…" '+(o.busy?'disabled':'')+'>'+
-  '<div class="rw"><button class="sm" data-a="mod" data-id="'+o.id+'" '+(o.busy||!o.img?'disabled':'')+'>✎ Modifier cette image</button>'+
-  '<button class="sm" data-a="gen" data-id="'+o.id+'" '+(o.busy?'disabled':'')+'>↻ Nouvelle image</button>'+
-  '<label class="sm btn up" '+(o.busy?'style="opacity:.35;pointer-events:none"':'')+'>⬆ Ma photo<input type="file" accept="image/*" hidden data-up="'+o.id+'"></label></div>'+
-  (o.err?'<div class="lab" style="color:var(--er);margin-top:4px">'+esc(o.err)+'</div>':'')+'</div>';
-const fld=(o,f,l,ta)=>'<label class="f"><span class="lab">'+l+'</span>'+(ta?'<textarea data-f="'+f+'" data-id="'+o.id+'" rows="'+ta+'">'+esc(o[f])+'</textarea>':'<input type="text" data-f="'+f+'" data-id="'+o.id+'" value="'+esc(o[f])+'">')+'</label>';
-const csv=(o,l)=>'<label class="f"><span class="lab">'+l+'</span><input type="text" data-f="chars" data-arr="1" data-id="'+o.id+'" value="'+esc((o.chars||[]).join(', '))+'"></label>';
-const charCard=c=>'<div class="cd" id="c-'+c.id+'">'+imBox(c,'3/4')+imgPanel(c)+fld(c,'name','Nom')+fld(c,'role','Rôle')+fld(c,'desc','Fiche physique (anglais)',3)+fld(c,'outfit','Costume (anglais)',2)+'<div class="rw"><button class="sm" data-a="del" data-id="'+c.id+'" '+(c.busy?'disabled':'')+'>🗑 Supprimer</button></div></div>';
-const charIn=c=>'<div class="cd" id="i-'+c.id+'">'+imBox(c,'3/4')+fld(c,'name','Nom')+fld(c,'desc','Description (ou importez une photo : l\'IA la décrit)',3)+'<div class="rw"><label class="sm btn up" '+(c.busy?'style="opacity:.35;pointer-events:none"':'')+'>⬆ Importer une photo<input type="file" accept="image/*" hidden data-up="'+c.id+'"></label><button class="sm" data-a="del" data-id="'+c.id+'">🗑</button></div></div>';
-const sceneCard=(s,i)=>'<div class="cd" id="c-'+s.id+'"><div class="lab">Scène '+(i+1)+'</div>'+imBox(s)+imgPanel(s)+fld(s,'title','Titre')+fld(s,'summary','Résumé',3)+fld(s,'decor','Décor (anglais)',2)+fld(s,'mood','Ambiance (anglais)')+csv(s,'Personnages présents (séparés par des virgules)')+fld(s,'dialogue','Dialogues (NOM: réplique)',4)+'<div class="rw"><button class="sm" data-a="del" data-id="'+s.id+'" '+(s.busy?'disabled':'')+'>🗑 Supprimer la scène</button></div></div>';
-const shotCard=h=>'<div class="cd" id="c-'+h.id+'">'+imBox(h)+imgPanel(h)+fld(h,'size','Type de plan (wide, medium, close-up…)')+fld(h,'action','Action visuelle (anglais)',3)+fld(h,'camera','Caméra (anglais)')+csv(h,'Personnages dans le plan')+fld(h,'who','Qui parle')+fld(h,'line','Réplique dite (français)',2)+'<div class="rw"><button class="sm" data-a="del" data-id="'+h.id+'" '+(h.busy?'disabled':'')+'>🗑 Supprimer le plan</button></div></div>';
-const mini=o=>'<div class="mn" id="m-'+o.id+'"><div class="im" style="aspect-ratio:'+(o.role!==undefined?'3/4':AR())+'">'+(o.img?'<img src="'+esc(ref(o.img))+'" alt="">':'<span>'+(o.err?'✕':'…')+'</span>')+(o.busy?'<i class="sp"></i>':'')+'</div><div class="lab">'+esc(o.name||o.title||o.size||'')+'</div></div>';
-const LBL={wait:'en attente',run:'en cours',ok:'prête',er:'échec'};
-const tile=(h,i)=>'<div class="tl '+h.vst+'" id="t-'+h.id+'"><div class="th" style="aspect-ratio:'+AR()+'">'+(h.video?'<video src="'+esc(h.video)+'" controls playsinline preload="metadata" data-id="'+h.id+'"></video>':h.img?'<img src="'+esc(ref(h.img))+'" alt="">':'')+'<b class="tg">'+i+'</b>'+(h.video&&!h.seen?'<em class="nw">NOUVEAU</em>':'')+'</div><div class="tx">'+esc(h.line?(h.who?h.who+' : ':'')+h.line:h.action||'')+'</div><div class="mt">'+(h.img?LBL[h.vst]||'':'image manquante')+(h.vst=='run'&&h.msg?' · '+esc(h.msg):'')+(h.err?' · '+esc(h.err):'')+'</div>'+(h.vst=='er'?'<div style="padding:0 8px 8px"><button class="sm" data-a="retry" data-id="'+h.id+'">Relancer</button></div>':'')+'</div>';
-function refresh(id){
-  const f=find(id);
-  if(!f)return;
-  const set=(p,h)=>{const a=document.getElementById(p+id);if(a){const t=document.createElement('div');t.innerHTML=h;a.replaceWith(t.firstElementChild)}};
-  if(f.t=='c'){set('c-',charCard(f.o));set('i-',charIn(f.o))}
-  else if(f.t=='s')set('c-',sceneCard(f.o,P.scenes.indexOf(f.o)));
-  else if(f.t=='h'){set('c-',shotCard(f.o));set('t-',tile(f.o,shots().findIndex(x=>x.h===f.o)+1))}
-  if(TASK)set('m-',mini(f.o));
-  syncNext();
-  if(page==6)stats();
+function stopThinking() {
+  statusEl.textContent = 'STANDBY';
+  statusEl.classList.remove('active');
+  loaderArc.setAttribute('opacity', '0');
+  clearInterval(pulseInterval);
+  eyeGlow.setAttribute('r', '48');
+  halo.setAttribute('r', '120');
 }
 
-/* ═════════════════════════════════════════════════════════════════════
-   SYSTÈME DE TÂCHE (vue d'attente + activité live)
-   ═════════════════════════════════════════════════════════════════════ */
-function fd(t){const it={t:t,s:'run',at:Date.now()};TASK.items.push(it);paintFeed();return it}
-function fdDone(it,t){it.s='ok';if(t)it.t=t;paintFeed()}
-function paintFeed(){const e=$('#feed');if(!e||!TASK)return;const n=Date.now();e.innerHTML=TASK.items.map(i=>'<div class="fi '+i.s+'"><span class="ic">'+(i.s=='ok'?'✓':i.s=='er'?'✕':'<i class="sp2"></i>')+'</span><span>'+esc(i.t)+'</span>'+(i.s=='run'?'<em>'+Math.round((n-i.at)/1000)+' s</em>':'')+'</div>').join('')}
-function setPg(d,t){if(!TASK)return;TASK.pg=[d,t];pgb()}
-function pgb(){const b=$('#pgb');if(b&&TASK&&TASK.pg)b.style.width=Math.round(TASK.pg[0]/Math.max(1,TASK.pg[1])*100)+'%'}
-function setTiles(l){TASK.tiles=l;const e=$('#tiles');if(e)e.innerHTML=l.map(mini).join('')}
-const chk=()=>{if(TASK&&TASK.stop)throw new Error('stop')};
-function workView(){
-  const T=TASK;
-  return '<div class="hero"><div class="lab">ÉTAPE '+(T.step+1)+' / 7 · EN COURS</div><h2>'+esc(T.title)+'</h2>'+
-    (T.err?'<div class="guide er"><b>Un problème est survenu :</b> '+esc(T.err)+'<div class="rw" style="margin-top:8px">'+btn('retrytask','Réessayer','big')+btn('canceltask','← Revenir à l\'étape')+'</div></div>'
-         :'<div class="guide wt"><i class="sp2"></i><div><b>L\'IA travaille pour vous.</b> Ne fermez pas cette page : les résultats s\'afficheront tout seuls.<div class="lab">Temps écoulé : <span id="el">0 s</span></div></div></div>')+
-    '<div class="bar"><i id="pgb"></i></div>'+
-    '<div id="feed" class="feed"></div>'+
-    '<div class="grid mg" id="tiles">'+((T.tiles||[]).map(mini).join(''))+'</div>'+
-    (T.err?'':'<div class="ft"><span></span>'+btn('stoptask','■ Arrêter')+'</div>')+'</div>';
+function blink() {
+  let t = 0;
+  const anim = setInterval(() => {
+    t += 0.1;
+    const s = Math.abs(Math.cos(t * Math.PI)) * 0.5 + 0.5;
+    eyeGlow.setAttribute('r', (48 * s).toFixed(2));
+    if (t >= 1) { clearInterval(anim); eyeGlow.setAttribute('r', '48'); }
+  }, 18);
 }
-async function task(step,title,fn,after){
-  if(TASK)return;
-  TASK={step:step,title:title,fn:fn,after:after,items:[],start:Date.now(),stop:false,err:null,pg:null,tiles:null};
-  page=step;
-  render();
-  try{
-    await fn();
-    chk();
-  }catch(e){
-    const T=TASK;
-    if(e.message=='stop'){
-      TASK=null;
-      toast('Arrêté');
-      render();
-      return;
-    }
-    T.items.forEach(i=>{if(i.s=='run')i.s='er'});
-    T.err=e.message;
-    log('er',title+' : '+e.message);
-    render();
-    paintFeed();
+
+/* ============================================================
+   6. COOKIES
+   ============================================================ */
+function setCookie(name, value, days) {
+  const d = new Date();
+  d.setTime(d.getTime() + days * 24 * 60 * 60 * 1000);
+  document.cookie = `${name}=${encodeURIComponent(value)}; expires=${d.toUTCString()}; path=/; SameSite=Strict`;
+}
+function getCookie(name) {
+  const m = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+  return m ? decodeURIComponent(m[1]) : null;
+}
+
+const saved = getCookie(COOKIE_NAME);
+if (saved) apiKeysEl.value = saved;
+let saveTimer = null;
+apiKeysEl.addEventListener('input', () => {
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(() => setCookie(COOKIE_NAME, apiKeysEl.value, 7), 500);
+});
+function getKeys() {
+  return apiKeysEl.value.split('\n').map(k => k.trim()).filter(Boolean);
+}
+
+/* ============================================================
+   7. MESSAGES
+   ============================================================ */
+function addMessage(text, role) {
+  const div = document.createElement('div');
+  div.className = `msg ${role}`;
+  div.textContent = text;
+  messagesEl.appendChild(div);
+  messagesEl.scrollTop = messagesEl.scrollHeight;
+  return div;
+}
+
+/* ============================================================
+   8. APPEL CHAT (TEXTE)
+   ============================================================ */
+async function callChat(history, apiKey) {
+  const res = await fetch(`${API_BASE}/chat/completions`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` },
+    body: JSON.stringify({ model: MODEL_TEXT, messages: history, stream: false })
+  });
+  if (!res.ok) throw new Error(`Chat HTTP ${res.status}`);
+  const data = await res.json();
+  return data.choices?.[0]?.message?.content ?? '(réponse vide)';
+}
+
+/* ============================================================
+   9. GÉNÉRATION D'IMAGE (AGNES IMAGE 2.5 FLASH)
+   ============================================================ */
+async function callImageGenerator(roleConfig, context, apiKey) {
+  // Prompt structuré selon les recommandations Agnes :
+  // [Sujet] + [Environnement] + [Style] + [Composition] + [Éclairage]
+  const prompt = `Dark sci-fi technical illustration. Subject: ${roleConfig.prompt}. Context from conversation: ${context}. Style: minimalist vector-like, thin lines, monochrome dark blue-gray palette with a single bright red accent (#ff2a2a). Composition: clean, isolated on dark background, subtle grid or technical diagram elements. Lighting: soft glow, cinematic. Quality: high detail, sharp.`;
+
+  const res = await fetch(`${API_BASE}/images/generations`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${apiKey}`
+    },
+    body: JSON.stringify({
+      model: MODEL_IMAGE,
+      prompt: prompt,
+      size: '1K',
+      ratio: '1:1',
+      extra_body: { response_format: 'url' }
+    })
+  });
+
+  if (!res.ok) {
+    const errText = await res.text();
+    console.warn(`[${roleConfig.name}] Image HTTP ${res.status} — ${errText.slice(0, 120)}`);
+    return null;
+  }
+
+  const data = await res.json();
+  // L'API renvoie l'URL dans data[0].url
+  return data.data?.[0]?.url || null;
+}
+
+/* ============================================================
+   10. INJECTION DES IMAGES DANS LES CASES
+   ============================================================ */
+let imageCount = 0;
+
+function positionElementInCell(el, geom) {
+  el.setAttribute('width', geom.w);
+  el.setAttribute('height', geom.h);
+  el.setAttribute('x', geom.x);
+  el.setAttribute('y', geom.y);
+  el.setAttribute('preserveAspectRatio', 'xMidYMid slice');
+}
+
+/**
+ * Injecte une image dans la case assignée au rôle.
+ * Utilise <image> SVG avec href vers l'URL générée.
+ */
+function injectImageInCell(imageUrl, roleName) {
+  const cellIdx = ROLE_CELL[roleName];
+  if (cellIdx === undefined) return;
+
+  // Cas spécial "accent" : coin bas-droite
+  if (cellIdx === -1) {
+    injectAccentImage(imageUrl);
     return;
   }
-  TASK=null;
-  after();
-}
-function retryTask(){const T=TASK;if(!T||!T.err)return;TASK=null;task(T.step,T.title,T.fn,T.after)}
-setInterval(()=>{if(!TASK||TASK.err)return;const e=$('#el');if(e)e.textContent=Math.round((Date.now()-TASK.start)/1000)+' s';paintFeed()},1000);
 
-/* ═════════════════════════════════════════════════════════════════════
-   NAVIGATION
-   ═════════════════════════════════════════════════════════════════════ */
-function go(n){if(TASK)return;if(page>0)P.last=page;page=n;render();onEnter()}
-/* Pas d'auto-advancement : l'utilisateur valide chaque étape avec le bouton */
-function done(step,sub){P.sub[step]=sub;save();render()}
-function onEnter(){
-  if(TASK||!P)return;
-  const s=P.sub[page]||(page==2?'in':'cfg');
-  if(s!='cfg')return;
-  if(page==3)runChars(P.chars.length?'own':'ai');
-  else if(page==4)runScenes(P.nsc||5);
-  else if(page==5)runShots();
-  // Page 6 : l'utilisateur clique explicitement sur "Lancer les vidéos"
-}
+  const g = findCellGroup(cellIdx);
+  if (!g) return;
 
-/* ═════════════════════════════════════════════════════════════════════
-   IA — FONCTIONS
-   ═════════════════════════════════════════════════════════════════════ */
-const CTX=()=>'Genre : '+P.genre.name+' ('+P.genre.style+').';
+  // Retirer l'ancienne œuvre
+  while (g.firstChild) g.removeChild(g.firstChild);
 
-async function aiSyn(){
-  const j=await llmJSON('Script doctor et scénariste de films d\'auteur. Tu respectes l\'idée de départ.',
-    CTX()+'\nSynopsis de l\'auteur :\n"""'+P.synRaw+'"""\nRéponds : {"title":"titre du film","base":"le synopsis de l\'auteur réécrit avec soin, fidèle à ses idées, en français, 5 à 8 phrases","suggestions":["10 synopsis alternatifs, chacun 3 à 5 phrases en français, avec un angle, un enjeu ou un retournement plus puissant, tous différents"]}',
-    4500,0.8);
-  if(!j.base||!Array.isArray(j.suggestions))throw new Error('format inattendu');
-  P.title=P.title||String(j.title||'');
-  P.syn={base:String(j.base),sugg:j.suggestions.map(String).slice(0,10),sel:[]};
-}
-async function aiMerge(){
-  const s=P.syn.sel.map(i=>P.syn.sugg[i]);
-  const j=await llmJSON('Scénariste. Tu fusionnes sans perdre la cohérence.',
-    'Version de base :\n'+P.syn.base+'\n\nIdées à intégrer :\n'+s.map((x,i)=>(i+1)+'. '+x).join('\n')+'\n\nÉcris UN synopsis final cohérent en français (8 à 12 phrases). {"final":"..."}',
-    3000,0.6);
-  P.final=String(j.final||P.syn.base);
-}
-async function aiChars(){
-  const j=await llmJSON('Directeur de casting et chef costumier.',
-    CTX()+'\nSynopsis :\n'+P.final+'\nPropose 3 à 6 personnages principaux. {"characters":[{"name":"","role":"rôle en français","desc":"precise English physical description: age, face, hair, skin, build, distinctive details","outfit":"precise English costume with colors"}]}',
-    3500,0.7);
-  const cs=j.characters||[];
-  if(!cs.length)throw new Error('aucun personnage reçu');
-  cs.forEach(c=>P.chars.push({id:uid(),name:String(c.name||'?'),role:String(c.role||''),desc:String(c.desc||''),outfit:String(c.outfit||''),img:null,busy:false}));
-}
-async function aiScenes(n){
-  const j=await llmJSON('Scénariste de cinéma d\'auteur. Dialogues naturels en français, jamais de musique.',
-    CTX()+'\nTitre : '+P.title+'\nSynopsis :\n'+P.final+'\nPersonnages :\n'+P.chars.map(c=>c.name+' : '+c.role+'. '+c.desc).join('\n')+'\nÉcris exactement '+n+' scènes qui racontent tout le film. {"scenes":[{"title":"","summary":"2-3 phrases en français","decor":"precise English place description","mood":"English mood and lighting","chars":["noms exacts"],"dialogue":[{"who":"","line":"réplique courte en français"}]}]}',
-    7000,0.75);
-  const sc=j.scenes||[];
-  if(!sc.length)throw new Error('aucune scène reçue');
-  P.scenes=sc.map(s=>({id:uid(),title:String(s.title||''),summary:String(s.summary||''),decor:String(s.decor||''),mood:String(s.mood||''),chars:Array.isArray(s.chars)?s.chars.map(String):[],dialogue:(s.dialogue||[]).map(d=>(d.who||'')+': '+(d.line||'')).join('\n'),img:null,busy:false,shots:[]}));
-}
-async function aiShots(s){
-  const j=await llmJSON('Réalisateur et chef opérateur.',
-    CTX()+'\nScène : '+s.title+'. '+s.summary+'\nDécor : '+s.decor+'. Ambiance : '+s.mood+'.\nPersonnages : '+(s.chars||[]).join(', ')+'\nDialogues :\n'+s.dialogue+'\nDécoupe en 3 à 5 plans de 8 à 10 secondes. Répartis les répliques dans les plans. {"shots":[{"size":"wide|medium|close-up|over-the-shoulder","camera":"English camera movement","action":"English visual description, 1-2 sentences","chars":["noms"],"who":"","line":"réplique en français ou vide"}]}',
-    3500,0.7);
-  const a=j.shots||[];
-  if(!a.length)throw new Error('aucun plan reçu');
-  s.shots=a.map(h=>({id:uid(),size:String(h.size||'medium'),camera:String(h.camera||'static'),action:String(h.action||''),chars:Array.isArray(h.chars)?h.chars.map(String):[],who:String(h.who||''),line:String(h.line||''),img:null,busy:false,vst:'wait'}));
-}
-async function aiDescribe(c){
-  const j=await llmJSON('Directeur de casting.','Décris cette personne. {"desc":"precise English physical description: age, face, hair, skin, build","outfit":"precise English clothing with colors"}',500,0.2,[ref(c.img)]);
-  c.desc=String(j.desc||c.desc);
-  c.outfit=String(j.outfit||c.outfit);
+  // Créer un <image> SVG
+  const img = document.createElementNS('http://www.w3.org/2000/svg', 'image');
+  img.setAttribute('href', imageUrl);
+  img.setAttribute('preserveAspectRatio', 'xMidYMid slice');
+  positionElementInCell(img, g._cellGeom);
+
+  // Fondu d'apparition
+  img.style.opacity = '0';
+  img.style.transition = 'opacity 0.8s ease';
+  g.appendChild(img);
+  requestAnimationFrame(() => { img.style.opacity = '0.88'; });
+
+  // Ajouter un léger cadre rouge autour de l'image
+  const border = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+  border.setAttribute('x', g._cellGeom.x + 1);
+  border.setAttribute('y', g._cellGeom.y + 1);
+  border.setAttribute('width', g._cellGeom.w - 2);
+  border.setAttribute('height', g._cellGeom.h - 2);
+  border.setAttribute('fill', 'none');
+  border.setAttribute('stroke', '#ff2a2a');
+  border.setAttribute('stroke-width', '0.6');
+  border.setAttribute('opacity', '0.25');
+  g.appendChild(border);
+
+  cellElements[roleName] = { el: img };
+  cellFilled[roleName] = true;
+
+  imageCount = Object.keys(cellFilled).length;
+  svgCounter.textContent = `IMAGES: ${imageCount} / 9`;
 }
 
-/* ═════════════════════════════════════════════════════════════════════
-   PIPELINES (avec vues d'attente)
-   ═════════════════════════════════════════════════════════════════════ */
-function runSyn(){
-  task(2,'Analyse de votre synopsis',async()=>{
-    const a=fd('Lecture de votre idée et du genre choisi');fdDone(a);
-    const b=fd('L\'IA réécrit votre synopsis et imagine 10 propositions plus puissantes…');
-    await aiSyn();
-    chk();
-    fdDone(b,'Synopsis réécrit + 10 propositions prêtes');
-  },()=>done(2,'pick'));
+function injectAccentImage(imageUrl) {
+  const accentG = document.getElementById('accent-g');
+  while (accentG.firstChild) accentG.removeChild(accentG.firstChild);
+
+  const size = 84;
+  const x = window.innerWidth - size - 24;
+  const y = window.innerHeight - size - 56;
+
+  const img = document.createElementNS('http://www.w3.org/2000/svg', 'image');
+  img.setAttribute('href', imageUrl);
+  img.setAttribute('x', x);
+  img.setAttribute('y', y);
+  img.setAttribute('width', size);
+  img.setAttribute('height', size);
+  img.setAttribute('preserveAspectRatio', 'xMidYMid slice');
+  img.style.opacity = '0';
+  img.style.transition = 'opacity 0.6s ease';
+  accentG.appendChild(img);
+  requestAnimationFrame(() => { img.style.opacity = '0.7'; });
 }
-function runMerge(){
-  task(2,'Fusion de vos choix',async()=>{
-    const a=fd('L\'IA fusionne '+P.syn.sel.length+' suggestion(s) avec votre synopsis…');
-    await aiMerge();
-    chk();
-    fdDone(a,'Synopsis final écrit');
-  },()=>done(2,'fin'));
-}
-function runChars(m){
-  let ai=(m=='ai');
-  task(3,'Création des personnages',async()=>{
-    if(ai){
-      const a=fd('L\'IA lit votre synopsis et imagine les personnages…');
-      await aiChars();
-      ai=false;chk();
-      fdDone(a,P.chars.length+' personnages imaginés : '+P.chars.map(c=>c.name).join(', '));
+
+/* ============================================================
+   11. PIPELINE PRINCIPAL
+   ============================================================ */
+let conversationHistory = [];
+let busy = false;
+
+async function sendQuestion() {
+  if (busy) return;
+  const question = questionEl.value.trim();
+  if (!question) return;
+
+  const keys = getKeys();
+  if (keys.length < 1) {
+    addMessage('⚠ Aucune clé API. Collez-en au moins une.', 'error');
+    return;
+  }
+
+  const chatKey = keys[0];
+  const imageKeys = keys.slice(1, 10);
+
+  busy = true;
+  sendBtn.disabled = true;
+  questionEl.value = '';
+
+  addMessage(question, 'user');
+  blink();
+  startThinking();
+
+  try {
+    conversationHistory.push({ role: 'user', content: question });
+    const answer = await callChat(conversationHistory, chatKey);
+    conversationHistory.push({ role: 'assistant', content: answer });
+    addMessage(answer, 'assistant');
+
+    // Contexte pour les générateurs d'images
+    const recent = conversationHistory.slice(-4);
+    const context = recent.map(m => `${m.role}: ${m.content}`).join('\n').slice(0, 800);
+
+    // Lancer les générations d'images en parallèle
+    if (imageKeys.length > 0) {
+      SVG_ROLES.slice(0, imageKeys.length).forEach((role, i) => {
+        callImageGenerator(role, context, imageKeys[i])
+          .then(url => {
+            if (url) injectImageInCell(url, role.name);
+          })
+          .catch(err => console.warn(`[${role.name}]`, err.message));
+      });
     }
-    for(const c of P.chars.filter(c=>c.img&&!c.desc)){
-      const d=fd('Analyse de la photo de '+c.name+'…');
-      try{await aiDescribe(c)}catch(e){if(e.message=='stop')throw e}
-      fdDone(d,'Photo de '+c.name+' analysée');
-    }
-    await imgPass(P.chars,'portraits');
-  },()=>done(3,'rev'));
-}
-function runScenes(n){
-  let w=true;
-  task(4,'Écriture du scénario',async()=>{
-    if(w){
-      const a=fd('L\'IA écrit le scénario : '+n+' scènes, avec décors, ambiances et dialogues…');
-      await aiScenes(n);
-      w=false;chk();
-      fdDone(a,P.scenes.length+' scènes écrites');
-    }
-    await imgPass(P.scenes,'images de scènes');
-  },()=>done(4,'rev'));
-}
-function runShots(){
-  task(5,'Découpage en plans et images',async()=>{
-    const todo=P.scenes.filter(s=>!(s.shots||[]).length);
-    if(todo.length){
-      const a=fd('Découpage de '+todo.length+' scène(s) en plans…');
-      let k=0;
-      const cut=async s=>{
-        try{await aiShots(s)}catch(e){if(e.message=='stop')throw e;log('wr',s.title+' : '+e.message)}
-        k++;
-        a.t='Découpage des scènes ('+k+'/'+todo.length+')…';
-        paintFeed();
-      };
-      await Promise.all(todo.map(cut));
-      chk();
-      for(const s of P.scenes.filter(s=>!(s.shots||[]).length))await cut(s);
-      fdDone(a,'Scènes découpées en '+shots().length+' plans');
-    }
-    if(!shots().length)throw new Error('Aucun plan créé');
-    await imgPass(shots().map(x=>x.h),'images de plans');
-  },()=>done(5,'rev'));
-}
 
-/* ═════════════════════════════════════════════════════════════════════
-   VUES (chaque page a une vue 'cfg' ou 'rev' ou autre)
-   ═════════════════════════════════════════════════════════════════════ */
-const V={0:{},1:{},2:{},3:{},4:{},5:{},6:{}};
-
-V[0].cfg=()=>'<div class="hero">'+hd(1,'Vos clés API <b>Agnès</b>')+guide('👉 À vous : collez vos clés Agnès (une par ligne), puis cliquez sur le bouton. Avec plusieurs clés, tout va beaucoup plus vite. Elles restent mémorisées sur cet appareil.')+
-  '<textarea id="keys" rows="6" spellcheck="false" placeholder="sk-…&#10;sk-…">'+esc(KEYS.list.map(k=>k.k).join('\n'))+'</textarea>'+
-  '<label class="f"><span class="lab">Type de clés</span><select id="plan"><option value="free" '+(KEYS.plan=='free'?'selected':'')+'>Gratuites — vidéo avec dialogue intégré</option><option value="plan" '+(KEYS.plan=='plan'?'selected':'')+'>Payantes (Token Plan) — vidéo 720P, plus rapide</option></select></label>'+
-  '<div id="kl" class="chips"></div>'+foot('',nextBtn('savekeys','Valider mes clés'))+'</div>';
-
-V[1].cfg=()=>{
-  const sel=P.genre&&P.genre.name;
-  return '<div class="hero">'+hd(2,'Quel <b>film</b> voulez-vous créer ?')+guide('👉 À vous : choisissez un genre et un format, écrivez votre idée puis cliquez sur Lancer. L\'IA fera tout le reste.')+
-    '<h3>1 · Genre</h3>'+
-    G.map(([c,l])=>'<div class="lab">'+c+'</div><div class="gc">'+l.map(x=>{const p=x.split('|');return '<button class="'+(sel==p[0]?'sel':'')+'" data-a="genre" data-n="'+esc(p[0])+'" data-s="'+esc(p[1])+'">'+esc(p[0])+'</button>'}).join('')+'</div>').join('')+
-    '<h3>2 · Format de l\'image</h3><div class="gc">'+[['16:9','Paysage 16:9 (cinéma)'],['9:16','Portrait 9:16 (mobile)'],['1:1','Carré 1:1']].map(r=>'<button class="'+(P.ratio==r[0]?'sel':'')+'" data-a="ratio" data-n="'+r[0]+'">'+r[1]+'</button>').join('')+'</div>'+
-    foot(btn('go','← Précédent','','data-n="0"'),nextBtn('go','Continuer',sel?'data-n="2"':'disabled data-off="1"'))+'</div>';
-};
-
-V[2].in=()=>'<div class="hero">'+hd(3,'Votre <b>idée</b> de film')+guide('👉 À vous : écrivez votre idée, même en 2 lignes. Ensuite, tout est automatique jusqu\'aux vidéos.')+
-  '<textarea id="synraw" rows="8" data-f="synRaw" data-id="P" placeholder="Ex. Un vieux projectionniste découvre une bobine qui montre l\'avenir de son village…">'+esc(P.synRaw)+'</textarea>'+
-  foot(btn('go','← Précédent','','data-n="1"'),'<span class="rw">'+btn('synasis','Garder mon texte tel quel')+nextBtn('synai','✦ Analyser avec l\'IA')+'</span>')+'</div>';
-
-V[2].pick=()=>'<div class="hero">'+hd(3,'Choisissez votre <b>synopsis</b>')+guide('👉 À vous : la version de base (en haut) est toujours retenue. Cochez les suggestions que vous voulez y intégrer, ou aucune, puis validez.')+
-  '<div class="cd pk"><div class="lab">Votre synopsis, bien réécrit</div><p>'+esc(P.syn.base)+'</p></div>'+
-  '<div class="grid" style="margin-top:12px">'+P.syn.sugg.map((s,i)=>'<label class="cd" style="cursor:pointer"><span class="lab">Suggestion '+(i+1)+'</span><p>'+esc(s)+'</p><input type="checkbox" data-sg="'+i+'" '+((P.syn.sel||[]).indexOf(i)>=0?'checked':'')+' style="width:auto"> Intégrer à ma version</label>').join('')+'</div>'+
-  foot(btn('synedit','← Modifier mon texte'),nextBtn('synok','Valider ce choix'))+'</div>';
-
-V[2].fin=()=>'<div class="hero">'+hd(3,'Votre <b>synopsis</b> final')+guide('✓ Synopsis prêt. 👉 Relisez-le, modifiez-le si besoin, puis cliquez sur Suivant. Il guidera tout le film.','go')+
-  '<label class="f"><span class="lab">Titre du film</span><input type="text" data-f="title" data-id="P" value="'+esc(P.title)+'"></label>'+
-  '<label class="f"><span class="lab">Synopsis</span><textarea data-f="final" data-id="P" rows="10">'+esc(P.final)+'</textarea></label>'+
-  foot(btn('synback','← '+(P.syn?'Revoir les propositions':'Modifier mon texte')),nextBtn('go','Continuer vers les personnages','data-n="3"'))+'</div>';
-
-V[3].cfg=()=>'<div class="hero">'+hd(4,'Les <b>personnages</b>')+guide('👉 À vous : choisissez comment créer vos personnages. Les portraits sont ensuite générés automatiquement.')+
-  '<div class="choice"><div class="ch" data-a="chai"><b>✦ L\'IA crée les personnages</b>Elle lit votre synopsis, imagine les personnages et crée leurs portraits. (Recommandé)</div></div>'+
-  '<h3>Ou utilisez vos propres personnages</h3><p class="sub">Ajoutez vos photos ou vos descriptions. L\'IA analyse les photos et crée les portraits manquants.</p>'+
-  '<div class="grid" id="own">'+P.chars.map(charIn).join('')+'</div>'+
-  '<div class="rw" style="margin-top:10px">'+btn('addchar','+ Ajouter un personnage')+(P.chars.length?btn('chown','Utiliser mes personnages →','big'):'')+'</div>'+
-  foot(btn('go','← Précédent','','data-n="2"'))+'</div>';
-
-V[3].rev=()=>'<div class="hero">'+hd(4,'Vos <b>personnages</b>')+guide('✓ Portraits créés. 👉 Vérifiez-les. Sous chaque image : <b>Modifier</b> = part de l\'image actuelle avec votre demande · <b>Nouvelle image</b> = repart de la fiche · <b>Ma photo</b> = importe votre image. Puis cliquez sur Continuer.','go')+
-  '<div class="grid">'+(P.chars.map(charCard).join('')||'<span class="lab">Aucun personnage.</span>')+'</div>'+
-  '<div class="rw" style="margin-top:12px">'+btn('addchar','+ Ajouter un personnage')+btn('redo','↺ Refaire avec l\'IA','','data-n="3"')+'</div>'+
-  foot(btn('go','← Précédent','','data-n="2"'),nextBtn('go','Continuer vers les scènes','data-n="4"'))+'</div>';
-
-V[4].cfg=()=>'<div class="hero">'+hd(5,'Les <b>scènes</b>')+guide('👉 À vous : choisissez la longueur du film, puis lancez. L\'IA écrit le scénario, les dialogues, puis crée automatiquement l\'image de chaque scène.')+
-  '<div class="gc">'+[[3,'Court · 3 scènes'],[5,'Moyen · 5 scènes'],[8,'Long · 8 scènes'],[12,'Très long · 12 scènes']].map(n=>'<button class="'+((P.nsc||5)==n[0]?'sel':'')+'" data-a="nsc" data-n="'+n[0]+'">'+n[1]+'</button>').join('')+'</div>'+
-  foot(btn('go','← Précédent','','data-n="3"'),nextBtn('scgo','✦ Écrire le scénario'))+'</div>';
-
-V[4].rev=()=>'<div class="hero">'+hd(5,'Vos <b>scènes</b>')+guide('✓ Scénario et images prêts. 👉 Relisez les dialogues, modifiez ce que vous voulez, puis cliquez sur Continuer.','go')+
-  '<div class="grid">'+P.scenes.map(sceneCard).join('')+'</div>'+
-  '<div class="rw" style="margin-top:12px">'+btn('addscene','+ Ajouter une scène')+btn('redo','↺ Refaire avec l\'IA','','data-n="4"')+'</div>'+
-  foot(btn('go','← Précédent','','data-n="3"'),nextBtn('go','Continuer vers les plans','data-n="5"'))+'</div>';
-
-V[5].cfg=()=>'<div class="hero">'+hd(6,'Les <b>plans</b>')+guide('👉 L\'IA va découper chaque scène en plans, puis créer l\'image de départ de chaque plan.')+
-  foot(btn('go','← Précédent','','data-n="4"'),nextBtn('plgo','✦ Découper et créer les images'))+'</div>';
-
-V[5].rev=()=>'<div class="hero">'+hd(6,'Vos <b>plans</b>')+guide('✓ Plans et images prêts. 👉 Chaque image deviendra une vidéo. Modifiez les images ou les répliques si besoin, puis cliquez sur Continuer.','go')+
-  P.scenes.map((s,i)=>'<h3>Scène '+(i+1)+' — '+esc(s.title)+'</h3><div class="grid">'+((s.shots||[]).map(shotCard).join('')||'<span class="lab">Pas de plan.</span>')+'</div><div class="rw" style="margin-top:6px">'+btn('addshot','+ Ajouter un plan','sm','data-id="'+s.id+'"')+'</div>').join('')+
-  '<div class="rw" style="margin-top:12px">'+btn('redo','↺ Refaire avec l\'IA','','data-n="5"')+'</div>'+
-  foot(btn('go','← Précédent','','data-n="4"'),nextBtn('go','Continuer vers les vidéos','data-n="6"'))+'</div>';
-
-V[6].cfg=()=>'<div class="hero">'+hd(7,'Les <b>vidéos</b>')+
-  '<p class="sub">Chaque image de plan est transformée en vidéo par Agnès. La file d\'attente vidéo est souvent saturée : l\'app envoie les plans un par un, et si c\'est plein elle attend toute seule (3, 6, 12, 24… minutes) avant de réessayer. <b>Gardez cet onglet ouvert.</b> En attendant, regardez le film en « animatic » (images + voix).</p>'+
-  '<div class="cd" id="qp" style="margin:12px 0"></div>'+
-  '<div class="rw">'+btn('play','🎬 Voir le film maintenant')+btn('export','Exporter le projet','sm')+'</div>'+
-  '<div class="kp" id="kp"></div>'+
-  '<div class="grid" id="tiles" style="margin-top:12px;grid-template-columns:repeat(auto-fill,minmax(210px,1fr))">'+shots().map((x,i)=>tile(x.h,i+1)).join('')+'</div>'+
-  foot(btn('go','← Précédent','','data-n="5"'))+'</div>';
-
-function view(){
-  if(TASK)return workView();
-  const s=P.sub[page]||(page==2?'in':'cfg');
-  const v=V[page];
-  return (v[s]||v.cfg||v.in)();
-}
-function render(keep){
-  P.max=Math.max(P.max||0,page);
-  P.page=page;
-  $('#steps').innerHTML=STEPS.map((s,i)=>{
-    const can=!TASK&&i!=page&&(i==0||(KEYS.list.length&&i<=P.max));
-    return '<button class="st '+(i==page?'on':can?'ok':'')+'" '+(can?'data-a="go" data-n="'+i+'"':'disabled')+'>'+(i+1)+'. '+s+'</button>';
-  }).join('');
-  $('#main').innerHTML=view();
-  if(TASK){paintFeed();pgb()}
-  else if(page==0)keysChips();
-  else if(page==6){stats();qui()}
-  else syncNext();
-  if(!keep)scrollTo(0,0);
-  save();
-}
-function keysChips(){const e=$('#kl');if(!e)return;e.innerHTML=KEYS.list.map((k,i)=>'<span class="chip '+(k.off?'off':'')+'">#'+(i+1)+' …'+esc(k.k.slice(-4))+'</span>').join('')}
-
-/* ═════════════════════════════════════════════════════════════════════
-   FILE D'ATTENTE VIDÉO
-   ═════════════════════════════════════════════════════════════════════ */
-const fmt=s=>{s=Math.max(0,Math.round(s));return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')};
-function qHtml(ok,left){
-  const a=shots();
-  if(a.length&&ok==a.length)return guide('<b>🎉 Toutes les vidéos sont prêtes !</b> Cliquez sur « Voir le film maintenant », ou regardez chaque plan ci-dessous.','go');
-  if(!Q.on&&Q.st=='idle'&&!ok)return guide('<b>Prêt à créer les vidéos.</b> Vos images de plans sont validées. 👉 Cliquez sur le bouton : tout se passe ensuite automatiquement.')+'<div class="rw">'+btn('qstart','▶ Lancer la production des vidéos','big')+'</div>';
-  if(!Q.on)return guide('<b>Production en pause.</b> '+ok+' vidéo(s) prête(s), '+left+' restante(s).','wt')+'<div class="rw">'+btn('qstart','▶ Reprendre la production','big')+'</div>';
-  if(Q.st=='full')return guide('<b>⏳ File d\'attente Agnès saturée.</b> Aucune requête n\'est envoyée pendant l\'attente. Prochain test dans <b id="cd" style="font:600 18px Orbitron">'+fmt((Q.next-Date.now())/1000)+'</b>','wt')+'<div class="lab">Paliers d\'attente</div><div class="lad">'+BACK.map((m,i)=>'<i class="'+(i==Q.step-1?'on':i<Q.step-1?'past':'')+'">'+m+' min</i>').join('')+'</div><div class="rw">'+btn('qnow','Tester maintenant','sm')+btn('qpause','❚❚ Mettre en pause','sm')+'</div>';
-  return guide('<b>⚙ Production en cours.</b> Les vidéos sont envoyées à Agnès et apparaissent ci-dessous dès qu\'elles sont prêtes ('+ok+' prête(s), '+left+' restante(s)).')+'<div class="rw">'+btn('qpause','❚❚ Mettre en pause','sm')+'</div>';
-}
-function qui(){
-  const n=Date.now(),c=$('#qchip'),a=shots(),ok=a.filter(x=>x.h.vst=='ok').length,left=a.filter(x=>x.h.vst!='ok'&&x.h.img).length;
-  if(c){
-    c.style.display=a.some(x=>x.h.img)?'':'none';
-    c.textContent='VIDÉO · '+(Q.st=='full'?'file saturée'+(Q.on?' · '+fmt((Q.next-n)/1000):''):!Q.on?(ok==a.length&&a.length?'terminé':'en pause'):'en cours');
-    c.className='chip '+(Q.st=='full'?'cd':!Q.on?'off':'');
-  }
-  const e=$('#qp');
-  if(!e||page!=6||TASK)return;
-  const sig=[Q.st,Q.on,Q.step,ok,left,a.length].join();
-  if(e.dataset.sig!=sig){e.dataset.sig=sig;e.innerHTML=qHtml(ok,left)}
-  const cd=$('#cd');if(cd)cd.textContent=fmt((Q.next-n)/1000);
-}
-function stats(){
-  const a=shots(),k=$('#kp');
-  if(!k)return;
-  const n=s=>a.filter(x=>x.h.vst==s&&x.h.img).length;
-  k.innerHTML='<div><span class="lab">Plans</span><b>'+a.length+'</b></div><div><span class="lab">Vidéos prêtes</span><b>'+n('ok')+'</b></div><div><span class="lab">En cours</span><b>'+n('run')+'</b></div><div><span class="lab">En attente</span><b>'+n('wait')+'</b></div><div><span class="lab">Échecs</span><b>'+n('er')+'</b></div><div><span class="lab">Non vues</span><b>'+a.filter(x=>x.h.video&&!x.h.seen).length+'</b></div>';
-}
-const vp=(h,s)=>san(st()+'. '+h.action+'. Camera: '+h.camera+'. Setting: '+s.decor+'. '+(h.line?(h.who||'The character')+' says in French, lips in sync: "'+h.line+'".':'No speech.')+' Realistic ambient sound effects only, no music, no subtitles, no on-screen text. Keep the identity, outfit and visual style of the first frame identical throughout.');
-const dims=()=>P.ratio=='9:16'?[480,854]:P.ratio=='1:1'?[640,640]:[854,480];
-function sat(){Q.st='full';Q.next=Date.now()+BACK[Q.step]*60000;log('wr','file vidéo saturée → nouveau test dans '+BACK[Q.step]+' min');toast('File Agnès saturée — retest dans '+BACK[Q.step]+' min');Q.step=Math.min(Q.step+1,BACK.length-1);save();qui()}
-async function launch(h,s){
-  const o=await slot('vid'),free=KEYS.plan=='free';
-  const fr=h.img.u&&h.img.u.indexOf('data:')!==0?h.img.u:ref(h.img);
-  const D=dims();
-  const body=free
-    ?{model:VID.free,prompt:vp(h,s),num_frames:97,frame_rate:12,width:D[0],height:D[1],image:fr}
-    :{model:VID.plan,prompt:vp(h,s),seconds:'10',mode:'keyframe',size:'720P',aspect_ratio:P.ratio,first_frame:fr};
-  h.vst='run';h.msg='envoi…';h.err='';refresh(h.id);
-  let r;
-  try{r=await fetch(API+'/videos',{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+o.k},body:JSON.stringify(body)})}
-  catch(e){h.vst='wait';Q.next=Date.now()+30000;log('wr','réseau : '+e.message);refresh(h.id);return}
-  if(r.status==503){const t=await r.text().catch(()=>'');log('wr','503 '+t.slice(0,120));h.vst='wait';refresh(h.id);return sat()}
-  if(r.status==429){o.cool=Date.now()+(parseInt(r.headers.get('Retry-After'))||30)*1000;h.vst='wait';refresh(h.id);return}
-  if(!r.ok){
-    const t=(await r.text().catch(()=>'')).slice(0,140);
-    if([401,402,403].indexOf(r.status)>=0&&++o.bad>=2){
-      o.off=true;
-      if(!KEYS.list.some(k=>!k.off)){Q.on=false;Q.st='paused';toast('Aucune clé active')}
-    }
-    h.vst='er';h.err='HTTP '+r.status+' '+t;log('er','vidéo '+h.err);refresh(h.id);return;
-  }
-  const d=await r.json();
-  const id=d.video_id||d.id||d.task_id||(d.data&&(d.data.video_id||d.data.id));
-  if(!id){h.vst='er';h.err='pas de video_id';refresh(h.id);return}
-  let inner=null;
-  try{
-    if(id.indexOf('video_')===0){
-      let b=id.slice(6);
-      while(b.length%4)b+='=';
-      const m=atob(b).match(/video_id:([^;]+)/);
-      if(m)inner=m[1].trim();
-    }
-  }catch(e){}
-  h.task={id:id,inner:inner,k:o.k};
-  Q.st='run';Q.step=0;
-  log('ok','vidéo envoyée (clé …'+o.k.slice(-4)+')');
-  save();qui();
-  poll(h);
-}
-async function poll(h){
-  const t=h.task,model=VID[KEYS.plan],end=Date.now()+30*60000;
-  let n=0,miss=0;const key=t.k;
-  try{
-    await sleep(KEYS.plan=='free'?30000:8000);
-    while(Date.now()<end&&P){
-      const ids=[t.id];
-      if(t.inner&&t.inner!=t.id)ids.push(t.inner);
-      const iv=Math.min(20000,6000+n*1500);n++;
-      let d=null;
-      for(let i=0;i<ids.length;i++){
-        try{
-          const r=await fetch(POLL+'?video_id='+encodeURIComponent(ids[i])+'&model_name='+encodeURIComponent(model),{headers:{Authorization:'Bearer '+key}});
-          if(r.status==429){await sleep(8000);continue}
-          if(!r.ok){miss++;continue}
-          d=await r.json();
-          break;
-        }catch(e){miss++}
-      }
-      if(d){
-        const s=String(d.status||d.state||'').toLowerCase();
-        h.msg=d.progress?d.progress+'%':s;
-        refresh(h.id);
-        if(['completed','succeeded','done','success','finished','ready'].indexOf(s)>=0){
-          const u=(d.metadata&&(d.metadata.url||d.metadata.video_url))||(d.output&&(d.output.url||d.output.video_url))||(d.data&&(d.data.url||d.data.video_url))||d.url||d.video_url;
-          if(!u)throw new Error('terminé sans URL');
-          h.video=u;h.vst='ok';h.seen=false;h.err='';
-          log('ok','vidéo prête');toast('🎬 Nouvelle vidéo prête');
-          save();refresh(h.id);
-          return;
-        }
-        if(['failed','error','cancelled','canceled','rejected'].indexOf(s)>=0){
-          throw new Error(String((d.error&&d.error.message)||d.error||'échec génération').slice(0,100));
-        }
-      }else if(miss>20)throw new Error('suivi impossible');
-      await sleep(iv);
-    }
-    throw new Error('délai dépassé');
-  }catch(e){
-    h.vst='er';h.err=e.message;
-    log('er','vidéo : '+e.message);
-    save();refresh(h.id);
+  } catch (err) {
+    addMessage(`Erreur : ${err.message}`, 'error');
+  } finally {
+    stopThinking();
+    busy = false;
+    sendBtn.disabled = false;
+    questionEl.focus();
   }
 }
-setInterval(function(){
-  qui();
-  if(!P||!Q.on||Q.busy||Date.now()<Q.next)return;
-  const a=shots(),todo=a.filter(x=>x.h.vst=='wait'&&x.h.img),run=a.filter(x=>x.h.vst=='run').length,live=KEYS.list.filter(k=>!k.off).length;
-  if(!todo.length){if(!run){Q.on=false;Q.st='idle';save();qui()}return}
-  if(run>=Math.max(2,live*3))return;
-  Q.busy=true;
-  const next=todo[0];
-  launch(next.h,next.s).catch(e=>{log('er','file : '+e.message);Q.on=false;Q.st='paused'}).then(()=>{Q.busy=false});
-},1000);
-let wl=null;
-async function wake(){try{if(navigator.wakeLock)wl=await navigator.wakeLock.request('screen')}catch(e){}}
-function qstart(){
-  if(!shots().some(x=>x.h.img))return toast('Il faut d\'abord des images de plans');
-  Q.on=true;
-  if(Q.st=='paused'||Q.st=='idle')Q.st='run';
-  if(Q.st!='full')Q.next=0;
-  wake();save();qui();
-  log('in','production vidéo lancée');
-}
 
-/* ═════════════════════════════════════════════════════════════════════
-   LECTEUR
-   ═════════════════════════════════════════════════════════════════════ */
-function speak(t){
-  if(!t||!('speechSynthesis' in window))return;
-  speechSynthesis.cancel();
-  const u=new SpeechSynthesisUtterance(t);
-  u.lang='fr-FR';
-  speechSynthesis.speak(u);
-}
-async function play(){
-  const a=shots().filter(x=>x.h.video||x.h.img);
-  if(!a.length)return toast('Rien à lire pour l\'instant');
-  playing=true;
-  $('#pl').classList.add('on');
-  const v=$('#pv'),im=$('#pi');
-  for(let i=0;i<a.length;i++){
-    if(!playing)break;
-    const h=a[i].h;
-    $('#sub').textContent=h.line?(h.who?h.who+' : ':'')+h.line:'';
-    if(h.video){
-      im.style.display='none';v.style.display='block';
-      v.src=h.video;
-      await new Promise(r=>{v.onended=r;v.onerror=r;v.play().catch(r)});
-      h.seen=true;
-    }else{
-      v.style.display='none';im.style.display='block';
-      im.src=ref(h.img);
-      speak(h.line);
-      await sleep(Math.max(3500,(h.line||'').length*75));
-    }
-  }
-  stopPlay();save();
-}
-function stopPlay(){
-  playing=false;
-  $('#pv').pause();
-  if('speechSynthesis' in window)speechSynthesis.cancel();
-  $('#pl').classList.remove('on');
-  if(page==6&&!TASK)render(true);
-}
-
-/* ═════════════════════════════════════════════════════════════════════
-   ACTIONS
-   ═════════════════════════════════════════════════════════════════════ */
-const OK_DURING=['con','stoptask','retrytask','canceltask','closemd'];
-function redo(n){
-  if(!confirm('Refaire cette étape avec l\'IA ? Le contenu actuel de l\'étape sera remplacé.'))return;
-  if(n==3)P.chars=[];
-  if(n==4)P.scenes=[];
-  if(n==5)P.scenes.forEach(s=>s.shots=[]);
-  P.sub[n]='cfg';
-  render();
-  if(n==5)runShots();
-  else onEnter();
-}
-async function onClick(e){
-  const b=e.target.closest('[data-a]');
-  if(!b||b.disabled)return;
-  const a=b.dataset.a,id=b.dataset.id;
-  if(TASK&&OK_DURING.indexOf(a)<0)return toast('Une opération est en cours : patientez ou cliquez sur Arrêter');
-  if(a=='go')go(+b.dataset.n);
-  else if(a=='con')$('#con').classList.toggle('on');
-  else if(a=='closemd')$('#md').classList.remove('on');
-  else if(a=='savekeys'){
-    const ks=Array.from(new Set($('#keys').value.split(/[\s,;]+/).map(s=>s.trim()).filter(s=>s.length>=8)));
-    if(!ks.length)return toast('Collez au moins une clé API (une par ligne)');
-    KEYS.plan=$('#plan').value;
-    KEYS.list=ks.map(k=>{
-      const old=KEYS.list.find(o=>o.k==k);
-      return old||mkKey(k);
-    });
-    dbPut('config',{key:'keys',list:ks,plan:KEYS.plan}).catch(er=>log('wr','clés : '+er.message));
-    toast('✓ '+ks.length+' clé(s) enregistrée(s)');
-    go(Math.max(1,P.last||1));
-  }
-  else if(a=='genre'){P.genre={name:b.dataset.n,style:b.dataset.s};render(true)}
-  else if(a=='ratio'){P.ratio=b.dataset.n;render(true)}
-  else if(a=='synai'){if((P.synRaw||'').trim().length<10)return toast('Écrivez au moins une phrase');runSyn()}
-  else if(a=='synasis'){if((P.synRaw||'').trim().length<10)return toast('Écrivez au moins une phrase');P.final=P.synRaw;P.syn=null;done(2,'fin')}
-  else if(a=='synedit'){P.syn=null;P.final='';P.sub[2]='in';render()}
-  else if(a=='synback'){P.sub[2]=P.syn?'pick':'in';render()}
-  else if(a=='synok'){
-    if((P.syn.sel||[]).length)runMerge();
-    else{P.final=P.syn.base;P.sub[2]='fin';render()}
-  }
-  else if(a=='chai')runChars('ai');
-  else if(a=='chown')runChars('own');
-  else if(a=='addchar'){P.chars.push({id:uid(),name:'Nouveau personnage',role:'',desc:'',outfit:'',img:null,busy:false});render(true);scrollTo(0,document.body.scrollHeight)}
-  else if(a=='nsc'){P.nsc=+b.dataset.n;render(true)}
-  else if(a=='scgo'){if(P.scenes.length&&!confirm('Remplacer les scènes existantes ?'))return;runScenes(P.nsc||5)}
-  else if(a=='plgo')runShots();
-  else if(a=='addscene'){P.scenes.push({id:uid(),title:'Nouvelle scène',summary:'',decor:'',mood:'',chars:[],dialogue:'',img:null,busy:false,shots:[]});render(true)}
-  else if(a=='addshot'){const f=find(id);if(f){const s=f.o;(s.shots=s.shots||[]).push({id:uid(),size:'medium',camera:'static',action:'',chars:[],who:'',line:'',img:null,busy:false,vst:'wait'});render(true)}}
-  else if(a=='redo')redo(+b.dataset.n);
-  else if(a=='gen'){const i=document.querySelector('[data-mod="'+id+'"]');gen(id,{extra:i&&i.value.trim()})}
-  else if(a=='mod'){
-    const i=document.querySelector('[data-mod="'+id+'"]');
-    if(i&&i.value.trim())gen(id,{edit:true,extra:i.value.trim()});
-    else{toast('Écrivez d\'abord ce que vous voulez changer');if(i)i.focus()}
-  }
-  else if(a=='del'){
-    if(!confirm('Supprimer ?'))return;
-    const f=find(id);
-    if(!f)return;
-    if(f.t=='c')P.chars=P.chars.filter(c=>c.id!=id);
-    else if(f.t=='s')P.scenes=P.scenes.filter(s=>s.id!=id);
-    else f.s.shots=f.s.shots.filter(h=>h.id!=id);
-    render(true);
-  }
-  else if(a=='stoptask'){TASK.stop=true;toast('Arrêt en cours…')}
-  else if(a=='retrytask')retryTask();
-  else if(a=='canceltask'){TASK=null;render()}
-  else if(a=='qstart')qstart();
-  else if(a=='qpause'){Q.on=false;Q.st='paused';save();qui()}
-  else if(a=='qnow'){Q.on=true;Q.next=0;log('in','test manuel de la file vidéo');save()}
-  else if(a=='retry'){const f=find(id);f.o.vst='wait';f.o.err='';Q.on=true;if(Q.st=='paused'||Q.st=='idle')Q.st='run';refresh(id);qui()}
-  else if(a=='play')play();
-  else if(a=='stopplay')stopPlay();
-  else if(a=='export'){
-    const u=URL.createObjectURL(new Blob([JSON.stringify(P)],{type:'application/json'}));
-    const l=document.createElement('a');
-    l.href=u;l.download=(P.title||'film')+'.json';l.click();
-  }
-  else if(a=='sess')sessions();
-  else if(a=='new'){setP(newP());$('#md').classList.remove('on');page=KEYS.list.length?1:0;render()}
-  else if(a=='open'){
-    const p=await dbGet('sessions',id);
-    if(p){setP(p);page=KEYS.list.length?Math.max(1,Math.min(p.page||1,6)):0;$('#md').classList.remove('on');render();resume()}
-  }
-  else if(a=='delsess'){
-    if(!confirm('Supprimer cette session ?'))return;
-    await dbDel('sessions',id);
-    if(P.id==id){setP(newP());page=KEYS.list.length?1:0;render()}
-    sessions();
-  }
-}
-document.addEventListener('click',e=>{onClick(e).catch(er=>{log('er','action : '+er.message);toast('Erreur : '+er.message)})});
-window.addEventListener('error',e=>{log('er',e.message);toast('Erreur : '+e.message)});
-window.addEventListener('unhandledrejection',e=>{log('er','promesse : '+(e.reason&&e.reason.message||e.reason))});
-document.addEventListener('input',e=>{
-  const t=e.target;
-  if(!t.dataset.f||!P)return;
-  const o=t.dataset.id=='P'?P:(find(t.dataset.id)||{}).o;
-  if(!o)return;
-  if(t.dataset.arr){
-    o[t.dataset.f]=t.value.split(',').map(s=>s.trim()).filter(Boolean);
-  }else{
-    o[t.dataset.f]=t.value;
-  }
-  save();
+/* ============================================================
+   12. ÉVÉNEMENTS
+   ============================================================ */
+sendBtn.addEventListener('click', sendQuestion);
+questionEl.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendQuestion(); }
 });
-document.addEventListener('change',async e=>{
-  const t=e.target;
-  if(t.dataset.sg!==undefined){
-    const i=+t.dataset.sg,s=P.syn.sel=P.syn.sel||[];
-    if(t.checked){if(s.indexOf(i)<0)s.push(i)}
-    else P.syn.sel=s.filter(x=>x!=i);
-    save();
-  } else if(t.dataset.up){
-    const f=t.files[0];
-    if(!f)return;
-    const o=find(t.dataset.up);
-    if(!o)return;
-    const im=await readFile(f,1024);
-    if(!im)return toast('Image illisible');
-    o.o.img=im;o.o.err='';
-    if(o.t=='c'){
-      o.o.busy=true;refresh(o.o.id);
-      try{await aiDescribe(o.o);toast('Photo analysée : fiche du personnage remplie')}
-      catch(er){log('wr','analyse photo : '+er.message)}
-      o.o.busy=false;
-    }
-    refresh(o.o.id);save();
-  }
+document.addEventListener('click', (e) => {
+  if (e.target.closest('#input-area')) return;
+  blink();
 });
-document.addEventListener('play',e=>{
-  const v=e.target;
-  if(v.dataset&&v.dataset.id){
-    const f=find(v.dataset.id);
-    if(f&&!f.o.seen){
-      f.o.seen=true;
-      const n=v.parentNode.querySelector('.nw');
-      if(n)n.remove();
-      save();stats();
-    }
-  }
-},true);
-document.addEventListener('keydown',e=>{if(e.key=='Escape'&&playing)stopPlay()});
-async function sessions(){
-  const l=(await dbAll('sessions')).sort((a,b)=>b.upd-a.upd);
-  $('#mdc').innerHTML='<h3>Mes films</h3><p class="sub">Tout est enregistré automatiquement dans ce navigateur : textes, images, vidéos générées.</p><div class="rw">'+btn('new','+ Nouveau film','big')+btn('closemd','Fermer')+'</div>'+
-    l.map(p=>{
-      const sh=p.scenes.flatMap(s=>s.shots||[]);
-      const nv=sh.filter(h=>h.video&&!h.seen).length;
-      return '<div class="cd" style="margin-top:8px"><b>'+esc(p.title||(p.genre&&p.genre.name)||'Sans titre')+'</b>'+(p.id==P.id?' · <span class="lab">en cours</span>':'')+
-        '<div class="lab">'+new Date(p.upd).toLocaleString('fr-FR')+' · '+p.scenes.length+' scènes · '+sh.filter(h=>h.img).length+' images · '+sh.filter(h=>h.video).length+' vidéos'+(nv?' · '+nv+' non vues':'')+'</div>'+
-        '<div class="rw">'+btn('open','Ouvrir','sm','data-id="'+p.id+'"')+btn('delsess','Supprimer','sm','data-id="'+p.id+'"')+'</div></div>';
-    }).join('');
-  $('#md').classList.add('on');
-}
-$('#md').addEventListener('click',e=>{if(e.target.id=='md')e.target.classList.remove('on')});
+</script>
 
-/* ═════════════════════════════════════════════════════════════════════
-   REPRISE + INIT
-   ═════════════════════════════════════════════════════════════════════ */
-function resume(){
-  shots().forEach(x=>{
-    if(x.h.vst=='run'&&x.h.task){
-      if(KEYS.list.some(k=>k.k==x.h.task.k))poll(x.h);
-      else x.h.vst='wait';
-    }
-  });
-  qui();
-}
-(async()=>{
-  try{db=await Promise.race([openDB(),new Promise((_,rj)=>setTimeout(()=>rj(new Error('délai dépassé')),3000))])}
-  catch(e){db=null;fall(e)}
-  try{
-    const k=await dbGet('config','keys');
-    if(k){KEYS.plan=k.plan||'free';KEYS.list=(k.list||[]).map(mkKey)}
-    const last=await dbGet('config','last'),p=last&&await dbGet('sessions',last.v);
-    setP(p||newP());
-  }catch(e){setP(newP())}
-  page=KEYS.list.length?Math.max(1,Math.min(P.page||1,6)):0;
-  render();
-  resume();
-  log('in','CINÉ-GENESIS prêt · '+KEYS.list.length+' clé(s)');
-  if(KEYS.list.length)onEnter();
-})();
-</script></body></html>
+</body></html>
